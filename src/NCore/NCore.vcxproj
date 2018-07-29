@@ -115,14 +115,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="NGenerator.h" />
+    <ClInclude Include="NGeneratorArgs.h" />
     <ClInclude Include="NLib.h" />
     <ClInclude Include="NDefines.h" />
     <ClInclude Include="NEventArgs.h" />
+    <ClInclude Include="NLogicalBound.h" />
     <ClInclude Include="NObject.h" />
     <ClInclude Include="NRegistry.h" />
+    <ClInclude Include="NRelease.h" />
+    <ClInclude Include="NWindows.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NEventArgs.cpp" />
+    <ClCompile Include="NLogicalBound.cpp" />
     <ClCompile Include="NObject.cpp" />
     <ClCompile Include="NRegistry.cpp" />
   </ItemGroup>
