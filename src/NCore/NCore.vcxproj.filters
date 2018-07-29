@@ -22,6 +22,15 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{0163ca65-59c1-4077-8040-7bc43ec94a17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\EventArgs">
+      <UniqueIdentifier>{77982bf6-eb90-4dbb-a19b-c941d18915b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EventArgs">
+      <UniqueIdentifier>{9237ede3-a5bf-48c3-a1f3-b105d1f2b907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\COM">
+      <UniqueIdentifier>{7aa8110b-e094-48fb-a275-1ef32159436a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NDefines.h">
@@ -30,24 +39,42 @@
     <ClInclude Include="NRegistry.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="NEventArgs.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
     <ClInclude Include="NObject.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="NLib.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
+    <ClInclude Include="NEventArgs.h">
+      <Filter>Header Files\EventArgs</Filter>
+    </ClInclude>
+    <ClInclude Include="NGeneratorArgs.h">
+      <Filter>Header Files\EventArgs</Filter>
+    </ClInclude>
+    <ClInclude Include="NGenerator.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NLogicalBound.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NRelease.h">
+      <Filter>Header Files\COM</Filter>
+    </ClInclude>
+    <ClInclude Include="NWindows.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="NEventArgs.cpp">
+    <ClCompile Include="NObject.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="NObject.cpp">
+    <ClCompile Include="NEventArgs.cpp">
+      <Filter>Source Files\EventArgs</Filter>
+    </ClCompile>
+    <ClCompile Include="NLogicalBound.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
