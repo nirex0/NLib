@@ -11,5 +11,6 @@
 #include "NGenerator.h"
 #include "NGeneratorArgs.h"
 #include "NLogicalBound.h"
-
+#include "NAsyncWorker.h"
+#include "NAsyncArgs.h"
 #endif // !_N_LIB_H_
