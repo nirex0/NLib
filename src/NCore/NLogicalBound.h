@@ -6,6 +6,7 @@
 #include "NObject.h"
 #include "NEventArgs.h"
 
+#include "NDefines.h"
 #include <vector>
 #include <functional>
 
@@ -16,19 +17,19 @@ namespace NLib
 	class NLogicalBound : public NObject
 	{
 	public:
-		NLogicalBound();
-		~NLogicalBound();
+		NAPI NLogicalBound();
+		NAPI ~NLogicalBound();
 
-		bool Binding(void) const;
-		bool Binding(bool intake);
+		NAPI bool Binding(void) const;
+		NAPI bool Binding(bool intake);
 
-		NBinding* Function(void) const;
-		NBinding* Function(NBinding intake);
+		NAPI NBinding* Function(void) const;
+		NAPI NBinding* Function(NBinding intake);
 
-		void operator=(NBinding rhs);
-		void operator()(void);
+		NAPI void operator=(NBinding rhs);
+		NAPI void operator()(void);
 
-		void Run(void);
+		NAPI void Run(void);
 
 	private:
 		bool m_binding;
