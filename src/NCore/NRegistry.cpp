@@ -104,7 +104,7 @@ namespace NLib
 		return this;
 	}
 
-	std::vector<Annex*> NRegistry::Container(void)
+	std::vector<Annex*> NRegistry::Container(void) const
 	{
 		return m_registered;
 	}

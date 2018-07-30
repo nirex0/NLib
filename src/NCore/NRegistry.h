@@ -31,7 +31,7 @@ namespace NLib
 		NAPI NRegistry* operator+=(Annex rhs);
 		NAPI NRegistry* operator-=(Annex rhs);
 
-		NAPI std::vector<Annex*> Container(void);
+		NAPI std::vector<Annex*> Container(void) const;
 
 	private:
 		volatile long m_count;
