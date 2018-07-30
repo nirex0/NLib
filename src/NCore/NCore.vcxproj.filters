@@ -63,6 +63,12 @@
     <ClInclude Include="NWindows.h">
       <Filter>Header Files\System</Filter>
     </ClInclude>
+    <ClInclude Include="NAsyncWorker.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NAsyncArgs.h">
+      <Filter>Header Files\EventArgs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
@@ -76,6 +82,12 @@
     </ClCompile>
     <ClCompile Include="NLogicalBound.cpp">
       <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="NAsyncWorker.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="NAsyncArgs.cpp">
+      <Filter>Source Files\EventArgs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
