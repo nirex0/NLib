@@ -13,17 +13,17 @@ namespace NLib
 	class NGenerator : public NObject
 	{
 	public:
-		NGenerator(void)
+		NAPI NGenerator(void)
 		{
 			m_yield = new NRegistry();
 		}
 
-		~NGenerator(void)
+		NAPI ~NGenerator(void)
 		{
 			delete m_yield;
 		}
 
-		void Generate(T in = {})
+		NAPI void Generate(T in = {})
 		{
 			NGeneratorArgs<T>* args = new NGeneratorArgs<T>(m_iterationCount, in);
 			m_yield->Run(this, args);
