@@ -115,6 +115,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="NAsyncArgs.h" />
+    <ClInclude Include="NAsyncWorker.h" />
     <ClInclude Include="NGenerator.h" />
     <ClInclude Include="NGeneratorArgs.h" />
     <ClInclude Include="NLib.h" />
@@ -127,6 +129,8 @@
     <ClInclude Include="NWindows.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="NAsyncArgs.cpp" />
+    <ClCompile Include="NAsyncWorker.cpp" />
     <ClCompile Include="NEventArgs.cpp" />
     <ClCompile Include="NLogicalBound.cpp" />
     <ClCompile Include="NObject.cpp" />
