@@ -12,23 +12,23 @@ namespace NLib
 	class NGeneratorArgs : public NEventArgs
 	{
 	public:
-		NGeneratorArgs(NINT iteration, T value = {})
+		NAPI NGeneratorArgs(NINT iteration, T value = {})
 			: m_valueHeld(value)
 			, m_iterationCount(iteration)
 		{
 		}
 
-		bool HasValue(void) const
+		NAPI bool HasValue(void) const
 		{
 			return (m_valueHeld != {});
 		}
 
-		T Value(void) const
+		NAPI T Value(void) const
 		{
 			return m_valueHeld;
 		}
 
-		NINT Iteration(void) const
+		NAPI NINT Iteration(void) const
 		{
 			return m_iterationCount;
 		}
