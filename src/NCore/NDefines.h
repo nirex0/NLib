@@ -3,6 +3,8 @@
 #ifndef _N_DEFINES_H_
 #define _N_DEFINES_H_
 
+namespace NLib
+{
 #ifdef NEXPORT  
 #define NAPI __declspec(dllexport)   
 #else  
@@ -17,27 +19,28 @@
 #define NLIB
 #define N_LIB
 
-typedef int					NINT;
-typedef char				NCHAR;
-typedef bool				NBOOL;
-typedef float				NFLOAT;
-typedef double				NDOUBLE;
-typedef long				NLONG;
-typedef long long			NLONGLONG;
+	typedef int					NINT;
+	typedef char				NCHAR;
+	typedef bool				NBOOL;
+	typedef float				NFLOAT;
+	typedef double				NDOUBLE;
+	typedef long				NLONG;
+	typedef long long			NLONGLONG;
 
-typedef unsigned int		NUINT;
-typedef unsigned char		NUCHAR;
-typedef unsigned long		NULONG;
-typedef unsigned long long	NULONGLONG;
+	typedef unsigned int		NUINT;
+	typedef unsigned char		NUCHAR;
+	typedef unsigned long		NULONG;
+	typedef unsigned long long	NULONGLONG;
 
-typedef int					NSBYTE;
-typedef char				NSWORD;
-typedef long				NSDWORD;
-typedef long long			NSQWORD;
+	typedef int					NSBYTE;
+	typedef char				NSWORD;
+	typedef long				NSDWORD;
+	typedef long long			NSQWORD;
 
-typedef int					NUBYTE;
-typedef char				NUWORD;
-typedef long				NUDWORD;
-typedef long long			NUQWORD;
+	typedef int					NUBYTE;
+	typedef char				NUWORD;
+	typedef long				NUDWORD;
+	typedef long long			NUQWORD;
+}
 
 #endif // !_N_DEFINES_H_
