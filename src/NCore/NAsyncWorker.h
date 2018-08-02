@@ -15,31 +15,27 @@
 
 namespace NLib
 {
-	class NAsyncWorker : public NObject
+	class NAPI NAsyncWorker : public NObject
 	{
 	public:
-		NAPI NAsyncWorker();
-		NAPI ~NAsyncWorker();
+		NAsyncWorker();
+		~NAsyncWorker();
 
-		// Getters
-		NAPI NRegistry* WorkRegistry(void) const;
-		NAPI NRegistry* DoneRegistry(void) const;
+		NRegistry* WorkRegistry(void) const;
+		NRegistry* DoneRegistry(void) const;
 
-		// Setters
-		NAPI NRegistry* WorkRegistry(NRegistry* intake);
-		NAPI NRegistry* DoneRegistry(NRegistry* intake);
+		NRegistry* WorkRegistry(NRegistry* intake);
+		NRegistry* DoneRegistry(NRegistry* intake);
 
-		// Functions
-		NAPI void RunWorkerAsync(void);
-		NAPI void RunWorkerAsyncSafe(void);
-		NAPI bool IsRunning(void);
+		void RunWorkerAsync(void);
+		void RunWorkerAsyncSafe(void);
+		bool IsRunning(void);
 
 	private:
-		NAPI bool WorkThread(std::thread& out);
+		bool WorkThread(std::thread& out);
 
 	private:
-		std::thread thr;
-		std::mutex m_MutexLock;
+		std::thread* thr;
 
 		bool m_isRunning;
 		NRegistry* m_WorkRegistry;

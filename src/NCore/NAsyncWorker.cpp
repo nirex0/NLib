@@ -6,12 +6,14 @@ namespace NLib
 {
 	NAsyncWorker::NAsyncWorker()
 	{
+		thr = new std::thread();
 		m_WorkRegistry = new NRegistry();
 		m_DoneRegistry = new NRegistry();
 	}
 
 	NAsyncWorker::~NAsyncWorker()
 	{
+		delete thr;
 		delete m_WorkRegistry;
 		delete m_DoneRegistry;
 	}
@@ -40,9 +42,9 @@ namespace NLib
 
 	void NAsyncWorker::RunWorkerAsync(void)
 	{
-		if (WorkThread(thr))
+		if (WorkThread(*thr))
 		{
-			thr.detach();
+			thr->detach();
 		}
 		m_DoneRegistry->Run(this, new NAsyncArgs());
 	}
@@ -51,9 +53,9 @@ namespace NLib
 	{
 		if (!m_isRunning)
 		{
-			if (WorkThread(thr))
+			if (WorkThread(*thr))
 			{
-				thr.detach();
+				thr->detach();
 			}
 			m_DoneRegistry->Run(this, new NAsyncArgs());
 		}
