@@ -14,28 +14,28 @@ namespace NLib
 {
 	typedef std::function<void(NObject* sender, NEventArgs* args)> Annex;
 
-	class NRegistry final : public NObject
+	class NAPI NRegistry final : public NObject
 	{
 	public:
-		NAPI NRegistry();
-		NAPI NRegistry(const NRegistry& nRegistery);
-		NAPI NRegistry(NRegistry&& nRegistery);
-		NAPI ~NRegistry();
+		NRegistry();
+		NRegistry(const NRegistry& nRegistery);
+		NRegistry(NRegistry&& nRegistery);
+		~NRegistry();
 
-		NAPI long GetCount(void) const;
+		long GetCount(void) const;
 
-		NAPI NRegistry* operator()(NObject* sender, NEventArgs* args);
-		NAPI NRegistry* Run(NObject* sender, NEventArgs* args);
-		NAPI NRegistry* Register(Annex rhs);
-		NAPI NRegistry* UnRegister(Annex* rhs);
-		NAPI NRegistry* operator+=(Annex rhs);
-		NAPI NRegistry* operator-=(Annex rhs);
+		NRegistry* operator()(NObject* sender, NEventArgs* args);
+		NRegistry* Run(NObject* sender, NEventArgs* args);
+		NRegistry* Register(Annex rhs);
+		NRegistry* UnRegister(Annex* rhs);
+		NRegistry* operator+=(Annex rhs);
+		NRegistry* operator-=(Annex rhs);
 
-		NAPI std::vector<Annex*> Container(void) const;
+		std::vector<Annex*> Container(void) const;
 
 	private:
 		volatile long m_count;
-		std::vector<Annex*> m_registered;
+		std::vector<Annex*>* m_registered;
 	};
 }
 

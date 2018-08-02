@@ -7,14 +7,15 @@ namespace NLib
 	NRegistry::NRegistry()
 		: m_count(0)
 	{
+		m_registered = new std::vector<Annex*>();
 	}
 
 	NRegistry::NRegistry(const NRegistry& nRegistery)
 		: m_count(0)
 	{
-		for (size_t i = 0; i < nRegistery.m_registered.size(); i++)
+		for (size_t i = 0; i < nRegistery.m_registered->size(); i++)
 		{
-			this->Register(*nRegistery.m_registered[i]);
+			this->Register(*(*nRegistery.m_registered)[i]);
 			_InterlockedIncrement(&m_count);
 		}
 	}
@@ -22,14 +23,17 @@ namespace NLib
 	NRegistry::NRegistry(NRegistry&& nRegistery)
 		: m_count(0)
 	{
-		for (size_t i = 0; i < nRegistery.m_registered.size(); i++)
+		for (size_t i = 0; i < nRegistery.m_registered->size(); i++)
 		{
-			this->Register(*nRegistery.m_registered[i]);
+			this->Register(*(*nRegistery.m_registered)[i]);
 			_InterlockedIncrement(&m_count);
 		}
 	}
 
-	NRegistry::~NRegistry(void) {}
+	NRegistry::~NRegistry(void) 
+	{
+		delete m_registered;
+	}
 
 	long NRegistry::GetCount(void) const
 	{
@@ -39,11 +43,11 @@ namespace NLib
 	NRegistry* NRegistry::operator()(NObject* sender, NEventArgs* args)
 	{
 		Annex current;
-		for (size_t i = 0; i < m_registered.size(); i++)
+		for (size_t i = 0; i < m_registered->size(); i++)
 		{
-			if (m_registered[i] != nullptr)
+			if ((*m_registered)[i] != nullptr)
 			{
-				current = *m_registered[i];
+				current = *(*m_registered)[i];
 				current(sender, args);
 			}
 		}
@@ -53,11 +57,11 @@ namespace NLib
 	NRegistry* NRegistry::Run(NObject* sender, NEventArgs* args)
 	{
 		Annex current;
-		for (size_t i = 0; i < m_registered.size(); i++)
+		for (size_t i = 0; i < m_registered->size(); i++)
 		{
-			if (m_registered[i] != nullptr)
+			if ((*m_registered)[i] != nullptr)
 			{
-				current = *m_registered[i];
+				current = *(*m_registered)[i];
 				current(sender, args);
 			}
 		}
@@ -66,18 +70,18 @@ namespace NLib
 
 	NRegistry* NRegistry::Register(Annex rhs)
 	{
-		m_registered.push_back(new Annex(rhs));
+		m_registered->push_back(new Annex(rhs));
 		_InterlockedIncrement(&m_count);
 		return this;
 	}
 
 	NRegistry* NRegistry::UnRegister(Annex* rhs)
 	{
-		for (size_t i = 0; i < m_registered.size(); i++)
+		for (size_t i = 0; i < m_registered->size(); i++)
 		{
-			if (m_registered[i] == rhs)
+			if ((*m_registered)[i] == rhs)
 			{
-				m_registered[i] = nullptr;
+				(*m_registered)[i] = nullptr;
 				_InterlockedDecrement(&m_count);
 			}
 		}
@@ -86,18 +90,18 @@ namespace NLib
 
 	NRegistry* NRegistry::operator+=(Annex rhs)
 	{
-		m_registered.push_back(new Annex(rhs));
+		m_registered->push_back(new Annex(rhs));
 		_InterlockedIncrement(&m_count);
 		return this;
 	}
 
 	NRegistry* NRegistry::operator-=(Annex rhs)
 	{
-		for (size_t i = 0; i < m_registered.size(); i++)
+		for (size_t i = 0; i < m_registered->size(); i++)
 		{
-			if (m_registered[i] == &rhs)
+			if ((*m_registered)[i] == &rhs)
 			{
-				m_registered[i] = nullptr;
+				(*m_registered)[i] = nullptr;
 				_InterlockedDecrement(&m_count);
 			}
 		}
@@ -106,6 +110,6 @@ namespace NLib
 
 	std::vector<Annex*> NRegistry::Container(void) const
 	{
-		return m_registered;
+		return (*m_registered);
 	}
 }
