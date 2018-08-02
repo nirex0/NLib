@@ -9,26 +9,26 @@
 namespace NLib
 {
 	template <class T>
-	class NGeneratorArgs : public NEventArgs
+	class NAPI NGeneratorArgs : public NEventArgs
 	{
 	public:
-		NAPI NGeneratorArgs(NINT iteration, T value = {})
+		NGeneratorArgs(NINT iteration, T value = {})
 			: m_valueHeld(value)
 			, m_iterationCount(iteration)
 		{
 		}
 
-		NAPI bool HasValue(void) const
+		bool HasValue(void) const
 		{
 			return (m_valueHeld != {});
 		}
 
-		NAPI T Value(void) const
+		T Value(void) const
 		{
 			return m_valueHeld;
 		}
 
-		NAPI NINT Iteration(void) const
+		NINT Iteration(void) const
 		{
 			return m_iterationCount;
 		}
