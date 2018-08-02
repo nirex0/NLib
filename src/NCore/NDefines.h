@@ -5,6 +5,8 @@
 
 namespace NLib
 {
+#define NEXPORT
+
 #ifdef NEXPORT  
 #define NAPI __declspec(dllexport)   
 #else  
