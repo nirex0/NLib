@@ -13,4 +13,7 @@
 #include "NLogicalBound.h"
 #include "NAsyncWorker.h"
 #include "NAsyncArgs.h"
+#include "NFile.h"
+#include "NString.h"
+
 #endif // !_N_LIB_H_
