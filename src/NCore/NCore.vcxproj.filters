@@ -31,6 +31,12 @@
     <Filter Include="Header Files\COM">
       <UniqueIdentifier>{7aa8110b-e094-48fb-a275-1ef32159436a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{d8eb0941-f8f5-461e-bb76-82c09fdd7857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{f79d60bd-e2f8-4069-89e2-7af51d59fe58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NDefines.h">
@@ -69,6 +75,12 @@
     <ClInclude Include="NAsyncArgs.h">
       <Filter>Header Files\EventArgs</Filter>
     </ClInclude>
+    <ClInclude Include="NString.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NFile.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
@@ -88,6 +100,12 @@
     </ClCompile>
     <ClCompile Include="NAsyncArgs.cpp">
       <Filter>Source Files\EventArgs</Filter>
+    </ClCompile>
+    <ClCompile Include="NString.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="NFile.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
