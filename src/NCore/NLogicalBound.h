@@ -14,22 +14,22 @@ namespace NLib
 {
 	typedef std::function<void(bool&)> NBinding;
 
-	class NLogicalBound : public NObject
+	class NAPI NLogicalBound : public NObject
 	{
 	public:
-		NAPI NLogicalBound();
-		NAPI ~NLogicalBound();
+		NLogicalBound();
+		~NLogicalBound();
 
-		NAPI bool Binding(void) const;
-		NAPI bool Binding(bool intake);
+		bool Binding(void) const;
+		bool Binding(bool intake);
 
-		NAPI NBinding* Function(void) const;
-		NAPI NBinding* Function(NBinding intake);
+		NBinding* Function(void) const;
+		NBinding* Function(NBinding intake);
 
-		NAPI void operator=(NBinding rhs);
-		NAPI void operator()(void);
+		void operator=(NBinding rhs);
+		void operator()(void);
 
-		NAPI void Run(void);
+		void Run(void);
 
 	private:
 		bool m_binding;
