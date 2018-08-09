@@ -15,5 +15,6 @@
 #include "NAsyncArgs.h"
 #include "NFile.h"
 #include "NString.h"
+#include "NAudio.h"
 
 #endif // !_N_LIB_H_
