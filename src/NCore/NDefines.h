@@ -18,6 +18,11 @@ namespace NLib
 #define N_CALL				__stdcall
 #define N_ENTRY				__stdcall
 
+#define PSIZE_MAX			65535
+#define PSIZE_NLIB			4096
+#define PSIZE_MTU			1500
+
+
 #define NLIB
 #define N_LIB
 
