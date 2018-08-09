@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Utility">
       <UniqueIdentifier>{f79d60bd-e2f8-4069-89e2-7af51d59fe58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Ease of Access">
+      <UniqueIdentifier>{a5915c82-aea3-4bd2-b94e-1f711527c0d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NDefines.h">
@@ -46,9 +49,6 @@
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="NObject.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="NLib.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="NEventArgs.h">
@@ -81,6 +81,15 @@
     <ClInclude Include="NFile.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="NAudio.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NMCILinkage.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="NLib.h">
+      <Filter>Header Files\Ease of Access</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
@@ -107,5 +116,16 @@
     <ClCompile Include="NFile.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="NAudio.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLib">
+      <Filter>Header Files\Ease of Access</Filter>
+    </None>
   </ItemGroup>
 </Project>
