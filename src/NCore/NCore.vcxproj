@@ -29,7 +29,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -42,7 +42,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClInclude Include="NAsyncArgs.h" />
     <ClInclude Include="NAsyncWorker.h" />
+    <ClInclude Include="NAudio.h" />
     <ClInclude Include="NFile.h" />
     <ClInclude Include="NGenerator.h" />
     <ClInclude Include="NGeneratorArgs.h" />
@@ -124,6 +125,7 @@
     <ClInclude Include="NDefines.h" />
     <ClInclude Include="NEventArgs.h" />
     <ClInclude Include="NLogicalBound.h" />
+    <ClInclude Include="NMCILinkage.h" />
     <ClInclude Include="NObject.h" />
     <ClInclude Include="NRegistry.h" />
     <ClInclude Include="NRelease.h" />
@@ -133,12 +135,17 @@
   <ItemGroup>
     <ClCompile Include="NAsyncArgs.cpp" />
     <ClCompile Include="NAsyncWorker.cpp" />
+    <ClCompile Include="NAudio.cpp" />
     <ClCompile Include="NEventArgs.cpp" />
     <ClCompile Include="NFile.cpp" />
     <ClCompile Include="NLogicalBound.cpp" />
     <ClCompile Include="NObject.cpp" />
     <ClCompile Include="NRegistry.cpp" />
     <ClCompile Include="NString.cpp" />
+    <ClCompile Include="Test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
