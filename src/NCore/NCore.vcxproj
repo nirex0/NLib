@@ -142,7 +142,6 @@
     <ClCompile Include="NObject.cpp" />
     <ClCompile Include="NRegistry.cpp" />
     <ClCompile Include="NString.cpp" />
-    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLib" />
