@@ -21,7 +21,7 @@ namespace NLib
 		NGenerator& operator=(const NGenerator&);
 	};
 
-#define $ngenerator(NAME) struct NAME : public generator::instance
+#define $ngenerator(NAME) struct NAME : public NGenerator
 
 #define $emit(T)            bool operator()(T& _rv) { switch(_line) { case 0:;
 #define $emit2(T1,T2)       bool operator()(T1& _rv1, T2& _rv2) { switch(_line) { case 0:;
