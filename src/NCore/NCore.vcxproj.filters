@@ -54,9 +54,6 @@
     <ClInclude Include="NEventArgs.h">
       <Filter>Header Files\EventArgs</Filter>
     </ClInclude>
-    <ClInclude Include="NGeneratorArgs.h">
-      <Filter>Header Files\EventArgs</Filter>
-    </ClInclude>
     <ClInclude Include="NGenerator.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
