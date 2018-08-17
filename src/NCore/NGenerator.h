@@ -14,14 +14,14 @@ namespace NLib
 		int _line;
 	public:
 		NGenerator() { rewind(); }
-		void rewind() { _line = 0; } // restart the generator
+		void rewind() { _line = 0; }
 
 	private:
-		NGenerator(const NGenerator&); // non-copyable
-		NGenerator& operator=(const NGenerator&); // non-assignable
+		NGenerator(const NGenerator&);
+		NGenerator& operator=(const NGenerator&);
 	};
 
-#define $generator(NAME) struct NAME : public generator::instance
+#define $ngenerator(NAME) struct NAME : public generator::instance
 
 #define $emit(T)            bool operator()(T& _rv) { switch(_line) { case 0:;
 #define $emit2(T1,T2)       bool operator()(T1& _rv1, T2& _rv2) { switch(_line) { case 0:;
@@ -37,5 +37,26 @@ namespace NLib
 
 #endif // !_W_GENERATOR_H_
 
+/*
+// Example
 
-	
+$ngenerator(gen_name)
+{
+	int i;
+	$emit(int)
+
+	for (i = 0; i < 10; i++)
+		$yield(i);
+
+	$stop;
+};
+
+int main(int argc, char* argv[])
+{
+	gen_name gen;
+	for(int n; gen(n);)
+		std::cout << n << " ";
+	return 0;
+}
+
+*/
