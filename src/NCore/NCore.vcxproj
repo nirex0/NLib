@@ -120,7 +120,6 @@
     <ClInclude Include="NAudio.h" />
     <ClInclude Include="NFile.h" />
     <ClInclude Include="NGenerator.h" />
-    <ClInclude Include="NGeneratorArgs.h" />
     <ClInclude Include="NLib.h" />
     <ClInclude Include="NDefines.h" />
     <ClInclude Include="NEventArgs.h" />
