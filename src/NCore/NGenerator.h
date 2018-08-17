@@ -5,7 +5,6 @@
 
 #include "NObject.h"
 #include "NRegistry.h"
-#include "NGeneratorArgs.h"
 
 namespace NLib
 {
@@ -34,7 +33,6 @@ namespace NLib
 #define $yield3(V1,V2,V3)    { _line=__LINE__; _rv1 = (V1); _rv2 = (V2); _rv3 = (V3); return true; case __LINE__: _line=__LINE__; }  
 #define $yield4(V1,V2,V3,V4) { _line=__LINE__; _rv1 = (V1); _rv2 = (V2); _rv3 = (V3); _rv4 = (V4); return true; case __LINE__: _line=__LINE__; }
 #define $stop  } _line = 0; return false; }
-
 }
 
 #endif // !_W_GENERATOR_H_
