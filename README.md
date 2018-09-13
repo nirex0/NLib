@@ -2,7 +2,7 @@
 
 Nirex's personal programming library.
 
-This lib includes a couple of helper classes and methods that help me code with my own standards.
+This lib includes a couple of classes and methods that help with creating systems with ease.
 
 Documentation may come soon.
 
