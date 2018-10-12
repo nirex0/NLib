@@ -232,6 +232,58 @@ namespace NLib
 		return retvec;
 	}
 
+	std::vector<std::string> NString::SplitNoEmpty(std::string in_s, const std::string & delim)
+	{
+		std::vector <std::string> retvec;
+		size_t pos = 0;
+		std::string token;
+
+		while ((pos = in_s.find(delim)) != std::string::npos)
+		{
+			token = in_s.substr(0, pos);
+			retvec.push_back(token);
+			in_s.erase(0, pos + delim.length());
+		}
+
+		retvec.push_back(in_s);
+		
+		std::vector<std::string> propervec;
+		for (const std::string& val : retvec)
+		{
+			if (val != "")
+			{
+				propervec.push_back(val);
+			}
+		}
+		return propervec;
+	}
+
+	std::vector<std::wstring> NString::SplitNoEmpty(std::wstring in_s, const std::wstring & delim)
+	{
+		std::vector <std::wstring> retvec;
+		size_t pos = 0;
+		std::wstring token;
+
+		while ((pos = in_s.find(delim)) != std::wstring::npos)
+		{
+			token = in_s.substr(0, pos);
+			retvec.push_back(token);
+			in_s.erase(0, pos + delim.length());
+		}
+
+		retvec.push_back(in_s);
+
+		std::vector<std::wstring> propervec;
+		for (const std::wstring& val : retvec)
+		{
+			if (val != L"")
+			{
+				propervec.push_back(val);
+			}
+		}
+		return propervec;
+	}
+
 	std::wstring NString::ToWide(std::string in)
 	{
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
