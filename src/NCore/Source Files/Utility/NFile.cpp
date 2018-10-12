@@ -1,6 +1,6 @@
 //© 2018 NIREX ALL RIGHTS RESERVED
 
-#include "NFile.h"
+#include "..\..\Header Files\Utility\NFile.h"
 
 namespace NLib
 {
