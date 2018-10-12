@@ -12,7 +12,7 @@
 
 namespace NLib
 {
-	typedef std::function<void(NObject* sender, NEventArgs* args)> Annex;
+	typedef NAPI std::function<void(NObject* sender, NEventArgs* args)> Annex;
 
 	class NAPI NRegistry final : public NObject
 	{
