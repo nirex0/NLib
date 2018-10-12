@@ -1,6 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
-#include "NLogicalBound.h"
+#include "..\..\Header Files\Core\NLogicalBound.h"
 
 namespace NLib
 {
