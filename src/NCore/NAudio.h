@@ -15,6 +15,7 @@ namespace NLib
 	{
 	public:
 		NAudio(const wchar_t* name, const wchar_t* path, HWND handle);
+		NAudio(const std::wstring& name, const std::wstring& path, HWND handle);
 		~NAudio(void);
 
 		// Getters

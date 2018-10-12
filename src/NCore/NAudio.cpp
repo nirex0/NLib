@@ -17,6 +17,19 @@ namespace NLib
 		mciSendString(cmd.c_str(), nullptr, 0, m_handle);
 	}
 
+	NAudio::NAudio(const std::wstring & name, const std::wstring & path, HWND handle)
+		: m_name(name.c_str())
+		, m_path(path.c_str())
+		, m_handle(handle)
+	{
+		std::wstring cmd = L"";
+		cmd += L"open \"";
+		cmd += m_path;
+		cmd += L"\" type mpegvideo alias ";
+		cmd += m_name;
+		mciSendString(cmd.c_str(), nullptr, 0, m_handle);
+	}
+
 	NAudio::~NAudio(void)
 	{
 		std::wstring cmd = L"";
