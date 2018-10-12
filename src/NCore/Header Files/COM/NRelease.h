@@ -3,7 +3,7 @@
 #ifndef _N_RELEASE_H_
 #define _N_RELEASE_H_
 
-#include "NWindows.h"
+#include "..\System\NWindows.h"
 
 namespace NLib
 {
