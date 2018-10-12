@@ -9,7 +9,6 @@
 #include "NEventArgs.h"
 #include "NRegistry.h"
 #include "NGenerator.h"
-#include "NGeneratorArgs.h"
 #include "NLogicalBound.h"
 #include "NAsyncWorker.h"
 #include "NAsyncArgs.h"
