@@ -3,7 +3,7 @@
 #ifndef _W_FILE_H_
 #define _W_FILE_H_
 
-#include "NDefines.h"
+#include "..\System\NDefines.h"
 #include <string>
 #include <fstream>
 #include <vector>
