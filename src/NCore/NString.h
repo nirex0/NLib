@@ -43,4 +43,5 @@ namespace NLib
 		static std::string ToNarrow(std::wstring in);
 	};
 }
+
 #endif // !_N_STRING_H_
