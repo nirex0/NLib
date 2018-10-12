@@ -25,12 +25,12 @@ namespace NLib
 		
 		static std::string ToUpper(std::string temp);
 		static std::string ToLower(std::string temp);
-		static std::string Proper(std::string temp);
+		static std::string ProperizeWord(std::string temp);
 		static std::string SubString(std::string str, int from, int to);
 
 		static std::wstring ToUpper(std::wstring temp);
 		static std::wstring ToLower(std::wstring temp);
-		static std::wstring Proper(std::wstring temp);
+		static std::wstring ProperizeWord(std::wstring temp);
 		static std::wstring SubString(std::wstring str, int from, int to);
 		
 		static std::vector<std::string> Split(std::string in_s, const std::string& delim);

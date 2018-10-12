@@ -130,7 +130,7 @@ namespace NLib
 		return temp;
 	}
 
-	std::string NString::Proper(std::string temp)
+	std::string NString::ProperizeWord(std::string temp)
 	{
 		int i = 0;
 		while (temp[i])
@@ -175,7 +175,7 @@ namespace NLib
 		return temp;
 	}
 
-	std::wstring NString::Proper(std::wstring temp)
+	std::wstring NString::ProperizeWord(std::wstring temp)
 	{
 		int i = 0;
 		while (temp[i])
