@@ -32,7 +32,7 @@ namespace NLib
 		return retc;
 	}
 
-	char* NString::Proper(char* temp)
+	char* NString::ProperizeWord(char* temp)
 	{
 		char* retc = temp;
 
@@ -44,6 +44,17 @@ namespace NLib
 		}
 		retc[0] = toupper(retc[0]);
 		return retc;
+	}
+
+	char* NString::SubString(char* str, int s_size, int from, int to)
+	{
+		if (from < 0 || to >= s_size || to < from || from >= s_size || from > to)
+		{
+			return nullptr;
+		}
+
+		std::string tmp = str;
+		return (char*)tmp.substr(from, to - from).c_str();
 	}
 
 	wchar_t* NString::ToUpper(wchar_t* temp)
@@ -72,7 +83,7 @@ namespace NLib
 		return retc;
 	}
 
-	wchar_t* NString::Proper(wchar_t* temp)
+	wchar_t* NString::ProperizeWord(wchar_t* temp)
 	{
 		wchar_t* retc = temp;
 
@@ -84,6 +95,17 @@ namespace NLib
 		}
 		retc[0] = toupper(retc[0]);
 		return retc;
+	}
+
+	wchar_t* NString::SubString(wchar_t* str, int s_size, int from, int to)
+	{
+		if (from < 0 || to >= s_size || to < from || from >= s_size || from > to)
+		{
+			return nullptr;
+		}
+
+		std::wstring tmp = str;
+		return (wchar_t*)tmp.substr(from, to - from).c_str();
 	}
 
 	std::string NString::ToUpper(std::string temp)
@@ -120,6 +142,17 @@ namespace NLib
 		return temp;
 	}
 
+	std::string NString::SubString(std::string str, int from, int to)
+	{
+		if (from < 0 || to >= str.length() || to < from || from >= str.length() || from > to)
+		{
+			return nullptr;
+		}
+
+		std::string tmp = str;
+		return tmp.substr(from, to - from);
+	}
+
 	std::wstring NString::ToUpper(std::wstring temp)
 	{
 		int i = 0;
@@ -152,6 +185,17 @@ namespace NLib
 		}
 		temp[0] = toupper(temp[0]);
 		return temp;
+	}
+
+	std::wstring NString::SubString(std::wstring str, int from, int to)
+	{
+		if (from < 0 || to >= str.length() || to < from || from >= str.length() || from > to)
+		{
+			return nullptr;
+		}
+
+		std::wstring tmp = str;
+		return tmp.substr(from, to - from);
 	}
 
 	std::vector<std::string> NString::Split(std::string in_s, const std::string& delim)
