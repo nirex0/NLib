@@ -36,6 +36,9 @@ namespace NLib
 		static std::vector<std::string> Split(std::string in_s, const std::string& delim);
 		static std::vector<std::wstring> Split(std::wstring in_s, const std::wstring& delim);
 		
+		static std::vector<std::string> SplitNoEmpty(std::string in_s, const std::string& delim);
+		static std::vector<std::wstring> SplitNoEmpty(std::wstring in_s, const std::wstring& delim);
+		
 		static std::wstring ToWide(std::string in);
 		static std::string ToNarrow(std::wstring in);
 	};
