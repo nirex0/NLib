@@ -1,6 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
-#include "NAsyncWorker.h"
+#include "..\..\Header Files\Core\NAsyncWorker.h"
 #include <memory>
 
 namespace NLib
