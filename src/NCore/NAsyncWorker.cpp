@@ -1,6 +1,7 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
 #include "NAsyncWorker.h"
+#include <memory>
 
 namespace NLib
 {
@@ -46,7 +47,8 @@ namespace NLib
 		{
 			thr->detach();
 		}
-		m_DoneRegistry->Run(this, new NAsyncArgs());
+		std::unique_ptr<NAsyncArgs> args = std::make_unique<NAsyncArgs>(new NAsyncArgs());
+		m_DoneRegistry->Run(this, args.get());
 	}
 
 	void NAsyncWorker::RunWorkerAsyncSafe(void)
@@ -57,7 +59,8 @@ namespace NLib
 			{
 				thr->detach();
 			}
-			m_DoneRegistry->Run(this, new NAsyncArgs());
+			std::unique_ptr<NAsyncArgs> args = std::make_unique<NAsyncArgs>(new NAsyncArgs());
+			m_DoneRegistry->Run(this, args.get());
 		}
 	}
 
@@ -70,7 +73,7 @@ namespace NLib
 	{
 		for (const auto& p : m_WorkRegistry->Container())
 		{
-			out = std::thread([=] { (*p)(this, new NAsyncArgs()); });
+			out = std::thread([=] { (*p)(this, nullptr); });
 		}
 		return true;
 	}
