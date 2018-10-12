@@ -1,6 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
-#include "NRegistry.h"
+#include "..\..\Header Files\Core\NRegistry.h"
 
 namespace NLib
 {
