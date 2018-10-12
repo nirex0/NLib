@@ -4,8 +4,6 @@ Nirex's personal programming library.
 
 This lib includes a couple of classes and methods that help with creating systems with ease.
 
-Documentation may come soon.
-
 # COPYRIGHT INFO
 
 MIT License
