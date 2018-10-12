@@ -1,124 +1,118 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files\System">
-      <UniqueIdentifier>{0d1459ec-8048-420e-a19c-b52ac52e467a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Core">
-      <UniqueIdentifier>{664c6efc-84b9-47e2-a4fa-92f00267dde9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{0163ca65-59c1-4077-8040-7bc43ec94a17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\EventArgs">
-      <UniqueIdentifier>{77982bf6-eb90-4dbb-a19b-c941d18915b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\EventArgs">
-      <UniqueIdentifier>{9237ede3-a5bf-48c3-a1f3-b105d1f2b907}</UniqueIdentifier>
+      <UniqueIdentifier>{eb8afaa5-e39f-4631-8e9a-3990d6c4dbb3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\COM">
-      <UniqueIdentifier>{7aa8110b-e094-48fb-a275-1ef32159436a}</UniqueIdentifier>
+      <UniqueIdentifier>{1a802e3c-e609-4109-aabc-2799ef6a1ed5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{8d75a89b-a870-414e-ac87-94579a6fb548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EventArgs">
+      <UniqueIdentifier>{3816592e-0724-4a31-9db3-06269b8d4822}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\System">
+      <UniqueIdentifier>{6062083a-b321-4d47-8431-2eaf4b318492}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Utility">
-      <UniqueIdentifier>{d8eb0941-f8f5-461e-bb76-82c09fdd7857}</UniqueIdentifier>
+      <UniqueIdentifier>{fadcf84f-8e49-4cd9-9f6a-39bde0933c58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{c74b2721-ecb2-4ae2-b717-6aa86c44fabe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{f361c40a-e656-4915-97f1-af3e066dc4b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EventArgs">
+      <UniqueIdentifier>{875200b1-4018-4654-8a6d-7f5e1c2aacfc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Utility">
-      <UniqueIdentifier>{f79d60bd-e2f8-4069-89e2-7af51d59fe58}</UniqueIdentifier>
+      <UniqueIdentifier>{8a0b91ae-5494-442f-8eb9-ff71d551d11f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ease of Access Header Files">
-      <UniqueIdentifier>{a5915c82-aea3-4bd2-b94e-1f711527c0d1}</UniqueIdentifier>
+      <UniqueIdentifier>{19a6e94a-1a9a-4e1d-ae97-fa2518928626}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NDefines.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="NRegistry.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="NObject.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="NEventArgs.h">
-      <Filter>Header Files\EventArgs</Filter>
-    </ClInclude>
-    <ClInclude Include="NGenerator.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="NLogicalBound.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="NRelease.h">
+    <ClInclude Include="Header Files\COM\NRelease.h">
       <Filter>Header Files\COM</Filter>
     </ClInclude>
-    <ClInclude Include="NWindows.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="NAsyncWorker.h">
+    <ClInclude Include="Header Files\Core\NLogicalBound.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="NAsyncArgs.h">
+    <ClInclude Include="Header Files\Core\NObject.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Core\NRegistry.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Core\NAsyncWorker.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Core\NAudio.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Core\NGenerator.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\EventArgs\NAsyncArgs.h">
       <Filter>Header Files\EventArgs</Filter>
     </ClInclude>
-    <ClInclude Include="NString.h">
-      <Filter>Header Files\Utility</Filter>
+    <ClInclude Include="Header Files\EventArgs\NEventArgs.h">
+      <Filter>Header Files\EventArgs</Filter>
     </ClInclude>
-    <ClInclude Include="NFile.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="NAudio.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="NMCILinkage.h">
+    <ClInclude Include="Header Files\System\NMCILinkage.h">
       <Filter>Header Files\System</Filter>
     </ClInclude>
-    <ClInclude Include="NLib.h">
+    <ClInclude Include="Header Files\System\NWindows.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\System\NDefines.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Utility\NFile.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Header Files\Utility\NString.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Ease of Access Header Files\NLib.h">
       <Filter>Ease of Access Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NRegistry.cpp">
+    <ClCompile Include="Source Files\Core\NLogicalBound.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="NObject.cpp">
+    <ClCompile Include="Source Files\Core\NObject.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="NEventArgs.cpp">
+    <ClCompile Include="Source Files\Core\NRegistry.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\Core\NAsyncWorker.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\Core\NAudio.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Files\EventArgs\NAsyncArgs.cpp">
       <Filter>Source Files\EventArgs</Filter>
     </ClCompile>
-    <ClCompile Include="NLogicalBound.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="NAsyncWorker.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="NAsyncArgs.cpp">
+    <ClCompile Include="Source Files\EventArgs\NEventArgs.cpp">
       <Filter>Source Files\EventArgs</Filter>
     </ClCompile>
-    <ClCompile Include="NString.cpp">
+    <ClCompile Include="Source Files\Utility\NString.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="NFile.cpp">
+    <ClCompile Include="Source Files\Utility\NFile.cpp">
       <Filter>Source Files\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="NAudio.cpp">
-      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="NLib">
+    <None Include="Ease of Access Header Files\NLib">
       <Filter>Ease of Access Header Files</Filter>
     </None>
   </ItemGroup>
