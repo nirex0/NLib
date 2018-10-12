@@ -5,8 +5,8 @@
 
 #include "NObject.h"
 #include "NRegistry.h"
-#include "NAsyncArgs.h"
-#include "NDefines.h"
+#include "..\EventArgs\NAsyncArgs.h"
+#include "..\System\NDefines.h"
 
 #include <chrono>
 #include <mutex>
