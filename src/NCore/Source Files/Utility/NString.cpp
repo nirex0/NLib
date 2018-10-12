@@ -1,6 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
-#include "NString.h"
+#include "..\..\Header Files\Utility\NString.h"
 #include <locale>
 #include <codecvt>
 
