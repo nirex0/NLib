@@ -15,19 +15,23 @@ namespace NLib
 	public:
 		static char* ToUpper(char* temp);
 		static char* ToLower(char* temp);
-		static char* Proper(char* temp);
-		
+		static char* ProperizeWord(char* temp);
+		static char* SubString(char* str, int size, int from, int to);
+
 		static wchar_t* ToUpper(wchar_t* temp);
 		static wchar_t* ToLower(wchar_t* temp);
-		static wchar_t* Proper(wchar_t* temp);
+		static wchar_t* ProperizeWord(wchar_t* temp);
+		static wchar_t* SubString(wchar_t* str, int s_size, int from, int to);
 		
 		static std::string ToUpper(std::string temp);
 		static std::string ToLower(std::string temp);
 		static std::string Proper(std::string temp);
-		
+		static std::string SubString(std::string str, int from, int to);
+
 		static std::wstring ToUpper(std::wstring temp);
 		static std::wstring ToLower(std::wstring temp);
 		static std::wstring Proper(std::wstring temp);
+		static std::wstring SubString(std::wstring str, int from, int to);
 		
 		static std::vector<std::string> Split(std::string in_s, const std::string& delim);
 		static std::vector<std::wstring> Split(std::wstring in_s, const std::wstring& delim);
