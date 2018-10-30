@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\NCore",
+    "\\src\\NCore\\Header Files",
+    "\\src\\NCore\\Header Files\\Utility",
+    "\\src\\NCore\\Source Files",
+    "\\src\\NCore\\Source Files\\Utility"
+  ],
+  "SelectedNode": "\\src\\NCore\\Source Files\\Utility\\NFile.cpp",
+  "PreviewInSolutionExplorer": false
+}
