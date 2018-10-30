@@ -114,4 +114,14 @@ namespace NLib
 		}
 		return true;
 	}
+
+	NBOOL NFile::SafeFWrite(void * buffer, NINT size, NINT number, FILE * fp)
+	{
+		if (fwrite(buffer, size, number, fp) == number)
+		{
+			return false;
+		}
+		return true;
+	}
+	 
 }
