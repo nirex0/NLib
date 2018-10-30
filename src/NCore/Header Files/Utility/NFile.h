@@ -23,6 +23,7 @@ namespace NLib
 		std::vector<int32_t> FindAll(std::string file, std::string val);
 		
 		NBOOL SafeFread(void* buffer, NINT size, NINT number, FILE* fp);
+		NBOOL SafeFWrite(void* buffer, NINT size, NINT number, FILE* fp);
 	};
 }
 #endif // !_W_FILE_H_
