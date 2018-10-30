@@ -99,7 +99,7 @@ namespace NLib
 		return retv;
 	}
 
-	NBOOL NFile::SafeFread(void * buffer, NINT size, NINT number, FILE * fp)
+	NBOOL NFile::SafeFread(void* buffer, NINT size, NINT number, FILE* fp)
 	{
 		using namespace std;
 		int ItemsRead;
