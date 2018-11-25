@@ -4,7 +4,7 @@
 #define _N_ASYNC_ARGS_H_
 
 #include "NEventArgs.h"
-#include "..\System\NDefines.h"
+#include "NDefines.h"
 
 namespace NLib
 {
