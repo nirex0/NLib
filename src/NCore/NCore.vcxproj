@@ -19,35 +19,38 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ease of Access Header Files\NLib.h" />
-    <ClInclude Include="Header Files\COM\NRelease.h" />
-    <ClInclude Include="Header Files\Core\NAsyncWorker.h" />
-    <ClInclude Include="Header Files\Core\NAudio.h" />
-    <ClInclude Include="Header Files\Core\NGenerator.h" />
-    <ClInclude Include="Header Files\Core\NLogicalBound.h" />
-    <ClInclude Include="Header Files\Core\NObject.h" />
-    <ClInclude Include="Header Files\Core\NRegistry.h" />
-    <ClInclude Include="Header Files\EventArgs\NAsyncArgs.h" />
-    <ClInclude Include="Header Files\EventArgs\NEventArgs.h" />
-    <ClInclude Include="Header Files\System\NDefines.h" />
-    <ClInclude Include="Header Files\System\NMCILinkage.h" />
-    <ClInclude Include="Header Files\System\NWindows.h" />
-    <ClInclude Include="Header Files\Utility\NFile.h" />
-    <ClInclude Include="Header Files\Utility\NString.h" />
+    <ClInclude Include="NAsyncArgs.h" />
+    <ClInclude Include="NAsyncWorker.h" />
+    <ClInclude Include="NAudio.h" />
+    <ClInclude Include="NBigInt.h" />
+    <ClInclude Include="NDefines.h" />
+    <ClInclude Include="NEventArgs.h" />
+    <ClInclude Include="NFile.h" />
+    <ClInclude Include="NGenerator.h" />
+    <ClInclude Include="NLib.h" />
+    <ClInclude Include="NLogicalBound.h" />
+    <ClInclude Include="NMCILinkage.h" />
+    <ClInclude Include="NObject.h" />
+    <ClInclude Include="NRegistry.h" />
+    <ClInclude Include="NRelease.h" />
+    <ClInclude Include="NString.h" />
+    <ClInclude Include="NWindows.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source Files\Core\NAsyncWorker.cpp" />
-    <ClCompile Include="Source Files\Core\NAudio.cpp" />
-    <ClCompile Include="Source Files\Core\NLogicalBound.cpp" />
-    <ClCompile Include="Source Files\Core\NObject.cpp" />
-    <ClCompile Include="Source Files\Core\NRegistry.cpp" />
-    <ClCompile Include="Source Files\EventArgs\NAsyncArgs.cpp" />
-    <ClCompile Include="Source Files\EventArgs\NEventArgs.cpp" />
-    <ClCompile Include="Source Files\Utility\NFile.cpp" />
-    <ClCompile Include="Source Files\Utility\NString.cpp" />
+    <ClCompile Include="NAsyncArgs.cpp" />
+    <ClCompile Include="NAsyncWorker.cpp" />
+    <ClCompile Include="NAudio.cpp" />
+    <ClCompile Include="NBigInt.cpp" />
+    <ClCompile Include="NEventArgs.cpp" />
+    <ClCompile Include="NFile.cpp" />
+    <ClCompile Include="NGenerator.cpp" />
+    <ClCompile Include="NLogicalBound.cpp" />
+    <ClCompile Include="NObject.cpp" />
+    <ClCompile Include="NRegistry.cpp" />
+    <ClCompile Include="NString.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Ease of Access Header Files\NLib" />
+    <None Include="NLib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
