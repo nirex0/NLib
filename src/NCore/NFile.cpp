@@ -1,6 +1,6 @@
 //© 2018 NIREX ALL RIGHTS RESERVED
 
-#include "..\..\Header Files\Utility\NFile.h"
+#include "NFile.h"
 
 namespace NLib
 {
@@ -21,31 +21,13 @@ namespace NLib
 		return outstr;
 	}
 
-	int NFile::WriteAllText(std::string file, std::string str)
+	NINT NFile::WriteAllText(std::string file, std::string str)
 	{
 		std::ofstream f;
 		f.open(file);
 		f << str;
 		f.close();
 		return 0;
-	}
-
-	std::int32_t NFile::FindFirst(std::string file, std::string val)
-	{
-		std::ifstream f(file.c_str());
-
-		std::string str = "";
-		int iter = 0;
-		while (std::getline(f, str))
-		{
-			if (val == str)
-			{
-				return iter;
-			}
-			iter++;
-		}
-		f.close();
-		return -1;
 	}
 
 	std::vector<std::string> NFile::ReadAllLines(std::string file)
@@ -63,7 +45,7 @@ namespace NLib
 		return retv;
 	}
 
-	int NFile::WriteAllLines(std::string file, std::vector<std::string> vecstr)
+	NINT NFile::WriteAllLines(std::string file, std::vector<std::string> vecstr)
 	{
 		std::ofstream f;
 		f.open(file);
@@ -76,6 +58,52 @@ namespace NLib
 
 		f.close();
 		return 0;
+	}
+	
+	std::vector<NCHAR> NFile::ReadAllBytes(std::string fileName)
+	{
+		std::ifstream ifs(fileName, std::ios::binary | std::ios::ate);
+		std::ifstream::pos_type pos = ifs.tellg();
+
+		std::vector<NCHAR> result((const unsigned int)pos);
+
+		ifs.seekg(0, std::ios::beg);
+		ifs.read(&result[0], pos);
+
+		return result;
+	}
+
+	NINT NFile::WriteAllBytes(std::string fileName, std::vector<NCHAR> vecBytes)
+	{
+		std::ofstream ofs(fileName, std::ios::binary | std::ios::out);
+
+		ofs.write(vecBytes.data(), vecBytes.size());
+
+		if (ofs.bad()) //bad() function will check for badbit
+		{
+			return 1;
+		}
+
+		ofs.close();
+		return 0;
+	}
+	
+	std::int32_t NFile::FindFirst(std::string file, std::string val)
+	{
+		std::ifstream f(file.c_str());
+
+		std::string str = "";
+		int iter = 0;
+		while (std::getline(f, str))
+		{
+			if (val == str)
+			{
+				return iter;
+			}
+			iter++;
+		}
+		f.close();
+		return -1;
 	}
 
 	std::vector<int32_t> NFile::FindAll(std::string file, std::string val)
@@ -99,7 +127,7 @@ namespace NLib
 		return retv;
 	}
 
-	NBOOL NFile::SafeFread(void* buffer, NINT size, NINT number, FILE* fp)
+	NBOOL NFile::SafeFread(NPVOID buffer, NINT size, NINT number, FILE* fp)
 	{
 		using namespace std;
 		int ItemsRead;
@@ -115,7 +143,7 @@ namespace NLib
 		return true;
 	}
 
-	NBOOL NFile::SafeFWrite(void * buffer, NINT size, NINT number, FILE * fp)
+	NBOOL NFile::SafeFWrite(NPVOID buffer, NINT size, NINT number, FILE* fp)
 	{
 		if (fwrite(buffer, size, number, fp) == number)
 		{
