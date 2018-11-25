@@ -25,6 +25,8 @@ namespace NLib
 #define NLIB
 #define N_LIB
 
+	typedef void*				NPVOID;
+
 	typedef int					NINT;
 	typedef char				NCHAR;
 	typedef bool				NBOOL;
@@ -47,6 +49,13 @@ namespace NLib
 	typedef unsigned char		NUWORD;
 	typedef unsigned long		NUDWORD;
 	typedef unsigned long long	NUQWORD;
+
+
+#define S_OK 0
+#define E_ERR 1
+#define E_ABORT 2
+#define E_UNKNOWN 3
+
 }
 
 #endif // !_N_DEFINES_H_
