@@ -4,9 +4,9 @@
 #define _W_LOGICAL_BOUND_H_
 
 #include "NObject.h"
-#include "..\EventArgs\NEventArgs.h"
+#include "NEventArgs.h"
 
-#include "..\System\NDefines.h"
+#include "NDefines.h"
 #include <vector>
 #include <functional>
 
