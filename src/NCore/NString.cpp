@@ -1,6 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
-#include "..\..\Header Files\Utility\NString.h"
+#include "NString.h"
 #include <locale>
 #include <codecvt>
 
@@ -144,7 +144,7 @@ namespace NLib
 
 	std::string NString::SubString(std::string str, int from, int to)
 	{
-		if (from < 0 || to >= str.length() || to < from || from >= str.length() || from > to)
+		if (from < 0 || to >= (int)str.length() || to < from || from >= (int)str.length() || from > to)
 		{
 			return nullptr;
 		}
@@ -189,7 +189,7 @@ namespace NLib
 
 	std::wstring NString::SubString(std::wstring str, int from, int to)
 	{
-		if (from < 0 || to >= str.length() || to < from || from >= str.length() || from > to)
+		if (from < 0 || to >= (int)str.length() || to < from || from >= (int)str.length() || from > to)
 		{
 			return nullptr;
 		}

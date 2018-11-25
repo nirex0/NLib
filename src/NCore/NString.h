@@ -3,8 +3,8 @@
 #ifndef _N_STRING_H_
 #define _N_STRING_H_
 
-#include "..\System\NDefines.h"
-#include "..\Core\NObject.h"
+#include "NDefines.h"
+#include "NObject.h"
 #include <string>
 #include <vector>
 
