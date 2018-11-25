@@ -3,9 +3,9 @@
 #ifndef _N_REGISTRY_H_
 #define _N_REGISTRY_H_
 
-#include "..\System\NDefines.h"
+#include "NDefines.h"
 #include "NObject.h"
-#include "..\EventArgs\NEventArgs.h"
+#include "NEventArgs.h"
 
 #include <vector>
 #include <functional>
