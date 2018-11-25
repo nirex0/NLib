@@ -1,6 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
-#include "..\..\Header Files\Core\NAsyncWorker.h"
+#include "NAsyncWorker.h"
 #include <memory>
 
 namespace NLib
@@ -47,7 +47,7 @@ namespace NLib
 		{
 			thr->detach();
 		}
-		std::unique_ptr<NAsyncArgs> args = std::make_unique<NAsyncArgs>(new NAsyncArgs());
+		std::unique_ptr<NAsyncArgs> args = std::make_unique<NAsyncArgs>(NAsyncArgs());
 		m_DoneRegistry->Run(this, args.get());
 	}
 
@@ -59,7 +59,7 @@ namespace NLib
 			{
 				thr->detach();
 			}
-			std::unique_ptr<NAsyncArgs> args = std::make_unique<NAsyncArgs>(new NAsyncArgs());
+			std::unique_ptr<NAsyncArgs> args = std::make_unique<NAsyncArgs>(NAsyncArgs());
 			m_DoneRegistry->Run(this, args.get());
 		}
 	}
