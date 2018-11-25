@@ -3,11 +3,11 @@
 #ifndef _N_AUDIO_H_
 #define _N_AUDIO_H_
 
-#include "..\System\NWindows.h"
+#include "NWindows.h"
 #include "NObject.h"
 #include <string>
 
-#include "..\System\NMCILinkage.h" // NOTE: Include after "Windows.h"
+#include "NMCILinkage.h" // NOTE: Include after "Windows.h"
 
 namespace NLib
 {

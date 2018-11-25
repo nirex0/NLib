@@ -1,6 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
-#include "..\..\Header Files\Core\NAudio.h"
+#include "NAudio.h"
 
 namespace NLib
 {
