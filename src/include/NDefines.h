@@ -21,10 +21,11 @@ namespace NLib
 #define PSIZE_MAX			65535
 #define PSIZE_NLIB			4096
 #define PSIZE_MTU			1500
-
-
+	
 #define NLIB
 #define N_LIB
+
+	typedef void*				NPVOID;
 
 	typedef int					NINT;
 	typedef char				NCHAR;
@@ -44,10 +45,17 @@ namespace NLib
 	typedef long				NSDWORD;
 	typedef long long			NSQWORD;
 
-	typedef int					NUBYTE;
-	typedef char				NUWORD;
-	typedef long				NUDWORD;
-	typedef long long			NUQWORD;
+	typedef unsigned int		NUBYTE;
+	typedef unsigned char		NUWORD;
+	typedef unsigned long		NUDWORD;
+	typedef unsigned long long	NUQWORD;
+
+
+#define S_OK 0
+#define E_ERR 1
+#define E_ABORT 2
+#define E_UNKNOWN 3
+
 }
 
 #endif // !_N_DEFINES_H_
