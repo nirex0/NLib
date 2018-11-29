@@ -5,16 +5,18 @@
 
 #include "NDefines.h"
 #include "NWindows.h"
+
 #include "NObject.h"
-#include "NEventArgs.h"
 #include "NRegistry.h"
 #include "NGenerator.h"
-#include "NGeneratorArgs.h"
 #include "NLogicalBound.h"
 #include "NAsyncWorker.h"
+#include "NAudio.h"
+
+#include "NEventArgs.h"
 #include "NAsyncArgs.h"
+
 #include "NFile.h"
 #include "NString.h"
-#include "NAudio.h"
 
 #endif // !_N_LIB_H_
