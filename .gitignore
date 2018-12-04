@@ -44,3 +44,5 @@
 *.suo
 *.sqlite
 *.ini
+*.db-shm
+*.db-wal
