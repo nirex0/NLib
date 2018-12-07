@@ -3,6 +3,7 @@
 #ifndef _N_AUDIO_H_
 #define _N_AUDIO_H_
 
+#include "NDefines.h"
 #include "NWindows.h"
 #include "NObject.h"
 #include <string>
@@ -11,7 +12,7 @@
 
 namespace NLib
 {
-	class NAudio : public NObject
+	class NAPI NAudio : public NObject
 	{
 	public:
 		NAudio(const wchar_t* name, const wchar_t* path, HWND handle);
