@@ -63,6 +63,7 @@ namespace NLib
 
 	bool NPerfectChance::operator()(void)
 	{
+		iterator++;
 		if (iterator == proc)
 		{
 			iterator = 0;
@@ -70,13 +71,13 @@ namespace NLib
 		}
 		else
 		{
-			iterator++;
 			return false;
 		}
 	}
 
 	bool NPerfectChance::Get(void)
 	{
+		iterator++;
 		if (iterator == proc)
 		{
 			iterator = 0;
@@ -84,13 +85,13 @@ namespace NLib
 		}
 		else
 		{
-			iterator++;
 			return false;
 		}
 	}
 
 	bool NPerfectChance::Perform(void)
 	{
+		iterator++;
 		if (iterator == proc)
 		{
 			iterator = 0;
@@ -98,7 +99,6 @@ namespace NLib
 		}
 		else
 		{
-			iterator++;
 			return false;
 		}
 	}
