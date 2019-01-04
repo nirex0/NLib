@@ -84,6 +84,9 @@
     <ClInclude Include="NBigInt.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="NPerfectChance.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
@@ -118,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="NGenerator.cpp">
       <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="NPerfectChance.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
