@@ -66,6 +66,11 @@ namespace NLib
 		iterator++;
 		if (iterator == proc)
 		{
+			if (m_annex)
+			{
+				m_annex();
+			}
+
 			iterator = 0;
 			return true;
 		}
@@ -80,6 +85,11 @@ namespace NLib
 		iterator++;
 		if (iterator == proc)
 		{
+			if (m_annex)
+			{
+				m_annex();
+			}
+
 			iterator = 0;
 			return true;
 		}
@@ -94,6 +104,11 @@ namespace NLib
 		iterator++;
 		if (iterator == proc)
 		{
+			if (m_annex)
+			{
+				m_annex();
+			}
+
 			iterator = 0;
 			return true;
 		}
@@ -101,5 +116,10 @@ namespace NLib
 		{
 			return false;
 		}
+	}
+
+	ProcCallee& NPerfectChance::GetCallee(void)
+	{
+		return m_annex;
 	}
 }
