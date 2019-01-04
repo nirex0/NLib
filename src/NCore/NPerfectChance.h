@@ -10,7 +10,7 @@ namespace NLib
 {
 	typedef std::function<void(void)> ProcCallee;
 
-	class NAPI NPerfectChance
+	class NAPI NPerfectChance final
 	{
 	public:
 		NPerfectChance(const size_t& pct_chance = 50);
