@@ -31,6 +31,7 @@
     <ClInclude Include="NLogicalBound.h" />
     <ClInclude Include="NMCILinkage.h" />
     <ClInclude Include="NObject.h" />
+    <ClInclude Include="NPerfectChance.h" />
     <ClInclude Include="NRegistry.h" />
     <ClInclude Include="NRelease.h" />
     <ClInclude Include="NString.h" />
@@ -46,6 +47,7 @@
     <ClCompile Include="NGenerator.cpp" />
     <ClCompile Include="NLogicalBound.cpp" />
     <ClCompile Include="NObject.cpp" />
+    <ClCompile Include="NPerfectChance.cpp" />
     <ClCompile Include="NRegistry.cpp" />
     <ClCompile Include="NString.cpp" />
   </ItemGroup>
