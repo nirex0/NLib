@@ -5,8 +5,6 @@
 
 #include <functional>
 #include "NDefines.h"
-
-
 #include "NObject.h"
 #include "NEventArgs.h"
 
@@ -18,6 +16,5 @@ namespace NLib
 
 	typedef NAPI std::function<void(NObject* sender, NEventArgs* args)> RegistryAnnex;
 }
-
 
 #endif // !_N_FUNCTIONS_H_
