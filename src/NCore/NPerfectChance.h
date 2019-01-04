@@ -4,11 +4,10 @@
 #define _N_PERFECT_CHANCE_H_
 
 #include "NDefines.h"
-#include <functional>
+#include "NFunctions.h"
 
 namespace NLib
 {
-	typedef std::function<void(void)> ProcCallee;
 
 	class NAPI NPerfectChance final
 	{
@@ -27,13 +26,13 @@ namespace NLib
 		bool Get(void);
 		bool Perform(void);
 
-		ProcCallee& GetCallee(void);
+		BaseAnnex& GetCallee(void);
 
 	private:
 		size_t chance;
 		size_t iterator;
 		size_t proc;
-		ProcCallee m_annex;
+		BaseAnnex m_annex;
 	};
 }
 

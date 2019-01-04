@@ -118,7 +118,7 @@ namespace NLib
 		}
 	}
 
-	ProcCallee& NPerfectChance::GetCallee(void)
+	BaseAnnex& NPerfectChance::GetCallee(void)
 	{
 		return m_annex;
 	}
