@@ -26,6 +26,7 @@
     <ClInclude Include="NDefines.h" />
     <ClInclude Include="NEventArgs.h" />
     <ClInclude Include="NFile.h" />
+    <ClInclude Include="NFunctions.h" />
     <ClInclude Include="NGenerator.h" />
     <ClInclude Include="NLib.h" />
     <ClInclude Include="NLogicalBound.h" />
