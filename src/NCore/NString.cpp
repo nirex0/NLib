@@ -295,4 +295,70 @@ namespace NLib
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 		return converter.to_bytes(in);
 	}
+
+	std::vector<std::string> NString::ToVector(std::string temp)
+	{
+		return SplitNoEmpty(temp, "\n");
+	}
+
+	std::string NString::FromVector(std::vector<std::string> temp)
+	{
+		std::string retS;
+		for (const auto& p : temp)
+		{
+			retS += p;
+			retS += "\n";
+		}
+		return retS;
+	}
+
+	std::vector<std::wstring> NString::ToVector(std::wstring temp)
+	{
+		return SplitNoEmpty(temp, L"\n");
+	}
+
+	std::wstring NString::FromVector(std::vector<std::wstring> temp)
+	{
+		std::wstring retS;
+		for (const auto& p : temp)
+		{
+			retS += p;
+			retS += L"\n";
+		}
+		return retS;
+	}
+
+	std::string NString::FullTrim(std::string temp)
+	{
+		return TrimBegin(TrimEnd(temp));
+	}
+
+	std::wstring NString::FullTrim(std::wstring temp)
+	{
+		return TrimBegin(TrimEnd(temp));
+	}
+
+	std::string NString::TrimBegin(std::string temp)
+	{
+		temp.erase(0, temp.find_first_not_of(" \t\n\r\f\v"));
+		return temp;
+	}
+
+	std::wstring NString::TrimBegin(std::wstring temp)
+	{
+		temp.erase(0, temp.find_first_not_of(L" \t\n\r\f\v"));
+		return temp;
+	}
+
+	std::string NString::TrimEnd(std::string temp)
+	{
+		temp.erase(temp.find_last_not_of(" \t\n\r\f\v") + 1);
+		return temp;
+	}
+
+	std::wstring NString::TrimEnd(std::wstring temp)
+	{
+		temp.erase(temp.find_last_not_of(L" \t\n\r\f\v") + 1);
+		return temp;
+	}
 }
