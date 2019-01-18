@@ -4,8 +4,7 @@
 #define _N_STRING_H_
 
 #include "NDefines.h"
-#include <string>
-#include <vector>
+#include "NStringUtils.h"
 
 namespace NLib
 {

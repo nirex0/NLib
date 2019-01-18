@@ -1,7 +1,6 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
 #include "NString.h"
-#include "NStringUtils.h"
 
 namespace NLib
 {
