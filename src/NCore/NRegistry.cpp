@@ -7,7 +7,7 @@ namespace NLib
 	NRegistry::NRegistry()
 		: m_count(0)
 	{
-		m_registered = new std::vector<Annex*>();
+		m_registered = new std::vector<RegistryAnnex*>();
 	}
 
 	NRegistry::NRegistry(const NRegistry& nRegistery)
@@ -42,7 +42,7 @@ namespace NLib
 
 	NRegistry* NRegistry::operator()(NObject* sender, NEventArgs* args)
 	{
-		Annex current;
+		RegistryAnnex current;
 		for (size_t i = 0; i < m_registered->size(); i++)
 		{
 			if ((*m_registered)[i] != nullptr)
@@ -56,7 +56,7 @@ namespace NLib
 
 	NRegistry* NRegistry::Run(NObject* sender, NEventArgs* args)
 	{
-		Annex current;
+		RegistryAnnex current;
 		for (size_t i = 0; i < m_registered->size(); i++)
 		{
 			if ((*m_registered)[i] != nullptr)
@@ -68,14 +68,14 @@ namespace NLib
 		return this;
 	}
 
-	NRegistry* NRegistry::Register(Annex rhs)
+	NRegistry* NRegistry::Register(RegistryAnnex rhs)
 	{
-		m_registered->push_back(new Annex(rhs));
+		m_registered->push_back(new RegistryAnnex(rhs));
 		_InterlockedIncrement(&m_count);
 		return this;
 	}
 
-	NRegistry* NRegistry::UnRegister(Annex* rhs)
+	NRegistry* NRegistry::UnRegister(RegistryAnnex* rhs)
 	{
 		for (size_t i = 0; i < m_registered->size(); i++)
 		{
@@ -88,14 +88,14 @@ namespace NLib
 		return this;
 	}
 
-	NRegistry* NRegistry::operator+=(Annex rhs)
+	NRegistry* NRegistry::operator+=(RegistryAnnex rhs)
 	{
-		m_registered->push_back(new Annex(rhs));
+		m_registered->push_back(new RegistryAnnex(rhs));
 		_InterlockedIncrement(&m_count);
 		return this;
 	}
 
-	NRegistry* NRegistry::operator-=(Annex rhs)
+	NRegistry* NRegistry::operator-=(RegistryAnnex rhs)
 	{
 		for (size_t i = 0; i < m_registered->size(); i++)
 		{
@@ -108,7 +108,7 @@ namespace NLib
 		return this;
 	}
 
-	std::vector<Annex*> NRegistry::Container(void) const
+	std::vector<RegistryAnnex*> NRegistry::Container(void) const
 	{
 		return (*m_registered);
 	}
