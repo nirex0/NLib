@@ -4,11 +4,12 @@
 #define _N_STRING_H_
 
 #include "NDefines.h"
+#include "NObject.h"
 #include "NStringUtils.h"
 
 namespace NLib
 {
-	class NAPI NString
+	class NAPI NString : public NObject 
 	{
 	public:
 		NString(void);
