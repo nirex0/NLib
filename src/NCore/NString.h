@@ -4,58 +4,116 @@
 #define _N_STRING_H_
 
 #include "NDefines.h"
-#include "NObject.h"
 #include <string>
 #include <vector>
 
 namespace NLib
 {
-	class NAPI NString final : public NObject
+	class NAPI NString
 	{
 	public:
-		static char* ToUpper(char* temp);
-		static char* ToLower(char* temp);
-		static char* ProperizeWord(char* temp);
-		static char* SubString(char* str, int size, int from, int to);
+		NString(void);
+		NString(const std::string& str);
+		NString(const std::wstring& wstr);
+		NString(char* str);
+		NString(wchar_t* str);
+		NString(std::vector<char> vecstr);
+		NString(std::vector<wchar_t> vecwstr);
+		NString(std::vector<std::string> vecstr);
+		NString(std::vector<std::wstring> vecwstr);
+		NString(std::vector<char*> veccstr);
+		NString(std::vector<wchar_t*> vecwcstr);
+		~NString(void);
 
-		static wchar_t* ToUpper(wchar_t* temp);
-		static wchar_t* ToLower(wchar_t* temp);
-		static wchar_t* ProperizeWord(wchar_t* temp);
-		static wchar_t* SubString(wchar_t* str, int s_size, int from, int to);
-		
-		static std::string ToUpper(std::string temp);
-		static std::string ToLower(std::string temp);
-		static std::string ProperizeWord(std::string temp);
-		static std::string SubString(std::string str, int from, int to);
+		std::string GetTrimRight(void) const;
+		void TrimRight(void);
 
-		static std::wstring ToUpper(std::wstring temp);
-		static std::wstring ToLower(std::wstring temp);
-		static std::wstring ProperizeWord(std::wstring temp);
-		static std::wstring SubString(std::wstring str, int from, int to);
-		
-		static std::vector<std::string> Split(std::string in_s, const std::string& delim);
-		static std::vector<std::wstring> Split(std::wstring in_s, const std::wstring& delim);
-		
-		static std::vector<std::string> SplitNoEmpty(std::string in_s, const std::string& delim);
-		static std::vector<std::wstring> SplitNoEmpty(std::wstring in_s, const std::wstring& delim);
-		
-		static std::wstring ToWide(std::string in);
-		static std::string ToNarrow(std::wstring in);
+		std::string GetTrimLeft(void) const;
+		void TrimLeft(void);
 
-		static std::vector<std::string> ToVector(std::string temp);
-		static std::string FromVector(std::vector<std::string> temp);
+		std::string GetTrim(void) const;
+		void Trim(void);
 
-		static std::vector<std::wstring> ToVector(std::wstring temp);
-		static std::wstring FromVector(std::vector<std::wstring> temp);
+		std::string GetUpper(void) const;
+		void ToUpper(void);
 
-		static std::string FullTrim(std::string temp);
-		static std::wstring FullTrim(std::wstring temp);
+		std::string GetLower(void) const;
+		void ToLower(void);
 
-		static std::string TrimBegin(std::string temp);
-		static std::wstring TrimBegin(std::wstring temp);
+		void Clear(void);
 
-		static std::string TrimEnd(std::string temp);
-		static std::wstring TrimEnd(std::wstring temp);
+		std::string SubString(size_t from, size_t to) const;
+		std::string& GetString(void);
+		std::string& operator()(void);
+		std::string operator()(size_t from, size_t to) const;
+		std::string AsString(void) const;
+		std::string& AsStringRef(void);
+
+		void Load(const std::string& str);
+		void Load(const std::wstring& wstr);
+		void Load(char* str);
+		void Load(wchar_t* str);
+		void Load(std::vector<char> vecstr);
+		void Load(std::vector<wchar_t> vecwstr);
+		void Load(std::vector<std::string> vecstr);
+		void Load(std::vector<std::wstring> vecwstr);
+		void Load(std::vector<char*> veccstr);
+		void Load(std::vector<wchar_t*> vecwcstr);
+
+		void Concat(const std::string& rhs);
+		void Concat(const std::wstring& rhs);
+		void Concat(char* str);
+		void Concat(wchar_t* str);
+		void Concat(std::vector<char> vecstr);
+		void Concat(std::vector<wchar_t> vecwstr);
+		void Concat(std::vector<std::string> vecstr);
+		void Concat(std::vector<std::wstring> vecwstr);
+		void Concat(std::vector<char*> veccstr);
+		void Concat(std::vector<wchar_t*> vecwcstr);
+
+		std::string operator+(const std::string& rhs) const;
+		std::string operator+(const std::wstring& wstr) const;
+		std::string operator+(char* str) const;
+		std::string operator+(wchar_t* str) const;
+		std::string operator+(std::vector<char> vecstr) const;
+		std::string operator+(std::vector<wchar_t> vecwstr) const;
+		std::string operator+(std::vector<std::string> vecstr) const;
+		std::string operator+(std::vector<std::wstring> vecwstr) const;
+		std::string operator+(std::vector<char*> veccstr) const;
+		std::string operator+(std::vector<wchar_t*> vecwcstr) const;
+
+		void operator+=(const std::string& rhs);
+		void operator+=(const std::wstring& rhs);
+		void operator+=(char* str);
+		void operator+=(wchar_t* str);
+		void operator+=(std::vector<char> vecstr);
+		void operator+=(std::vector<wchar_t> vecwstr);
+		void operator+=(std::vector<std::string> vecstr);
+		void operator+=(std::vector<std::wstring> vecwstr);
+		void operator+=(std::vector<char*> veccstr);
+		void operator+=(std::vector<wchar_t*> vecwcstr);
+
+		void operator=(const std::string& str);
+		void operator=(const std::wstring& wstr);
+		void operator=(char* str);
+		void operator=(wchar_t* str);
+		void operator=(std::vector<char> vecstr);
+		void operator=(std::vector<wchar_t> vecwstr);
+		void operator=(std::vector<std::string> vecstr);
+		void operator=(std::vector<std::wstring> vecwstr);
+		void operator=(std::vector<char*> veccstr);
+		void operator=(std::vector<wchar_t*> vecwcstr);
+
+		// Special Methods
+		std::wstring GetWide(void) const;
+		void LoadWide(std::wstring inwstr);
+
+	private:
+		// Using a pointer member so we can store huge data
+		std::string* m_str;
+
+		void Allocate(void);
+		void Release(void);
 	};
 }
 

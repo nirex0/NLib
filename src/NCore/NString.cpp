@@ -1,375 +1,595 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
 #include "NString.h"
-#include <algorithm> 
-#include <cctype>
-#include <locale>
-#include <codecvt>
+#include "NStringUtils.h"
 
 namespace NLib
 {
-	char* NString::ToUpper(char* temp)
+	NString::NString(void)
 	{
-		char* retc = temp;
+		Allocate();
+	}
 
-		int i = 0;
-		while (retc[i])
+	NString::NString(const std::string& str)
+	{
+		Allocate();
+		*m_str = str;
+	}
+
+	NString::NString(const std::wstring& wstr)
+	{
+		Allocate();
+		*m_str = NStringUtils::ToNarrow(wstr);
+	}
+
+	NString::NString(char* str)
+	{
+		Allocate();
+		*m_str = std::string(str);
+	}
+
+	NString::NString(wchar_t* str)
+	{
+		Allocate();
+		*m_str = NStringUtils::ToNarrow(std::wstring(str));
+	}
+
+	NString::NString(std::vector<char> vecstr)
+	{
+		Allocate();
+		*m_str = "";
+		for (const auto& c : vecstr)
 		{
-			retc[i] = toupper(retc[i]);
-			i++;
+			*m_str += c;
 		}
-		return retc;
 	}
 
-	char* NString::ToLower(char* temp)
+	NString::NString(std::vector<wchar_t> vecwstr)
 	{
-		char* retc = temp;
-
-		int i = 0;
-		while (retc[i])
+		Allocate();
+		std::wstring wstr;
+		for (const auto& c : vecwstr)
 		{
-			retc[i] = tolower(retc[i]);
-			i++;
+			wstr += c;
 		}
-		return retc;
+		*m_str = NStringUtils::ToNarrow(wstr);
 	}
 
-	char* NString::ProperizeWord(char* temp)
+	NString::NString(std::vector<std::string> vecstr)
 	{
-		char* retc = temp;
-
-		int i = 0;
-		while (retc[i])
+		Allocate();
+		*m_str = "";
+		for (const auto& s : vecstr)
 		{
-			retc[i] = tolower(retc[i]);
-			i++;
+			*m_str += s;
 		}
-		retc[0] = toupper(retc[0]);
-		return retc;
 	}
 
-	char* NString::SubString(char* str, int s_size, int from, int to)
+	NString::NString(std::vector<std::wstring> vecwstr)
 	{
-		if (from < 0 || to >= s_size || to < from || from >= s_size || from > to)
+		Allocate();
+		*m_str = "";
+		for (const auto& s : vecwstr)
 		{
-			return nullptr;
+			*m_str += NStringUtils::ToNarrow(s);
 		}
-
-		std::string tmp = str;
-		return (char*)tmp.substr(from, to - from).c_str();
 	}
 
-	wchar_t* NString::ToUpper(wchar_t* temp)
+	NString::NString(std::vector<char*> veccstr)
 	{
-		wchar_t* retc = temp;
-
-		int i = 0;
-		while (retc[i])
+		Allocate();
+		*m_str = "";
+		for (size_t i = 0; i < veccstr.size(); i++)
 		{
-			retc[i] = toupper(retc[i]);
-			i++;
+			std::string tmp = veccstr[i];
+			*m_str += tmp;
 		}
-		return retc;
 	}
 
-	wchar_t* NString::ToLower(wchar_t* temp)
+	NString::NString(std::vector<wchar_t*> vecwcstr)
 	{
-		wchar_t* retc = temp;
-
-		int i = 0;
-		while (retc[i])
+		Allocate();
+		*m_str = "";
+		for (size_t i = 0; i < vecwcstr.size(); i++)
 		{
-			retc[i] = tolower(retc[i]);
-			i++;
+			std::wstring tmp = vecwcstr[i];
+			*m_str += NStringUtils::ToNarrow(tmp);
 		}
-		return retc;
 	}
 
-	wchar_t* NString::ProperizeWord(wchar_t* temp)
+	NString::~NString(void)
 	{
-		wchar_t* retc = temp;
+		Release();
+	}
 
-		int i = 0;
-		while (retc[i])
+	std::string NString::GetTrimRight(void) const
+	{
+		return NStringUtils::TrimEnd(*m_str);
+	}
+
+	void NString::TrimRight(void)
+	{
+		*m_str = NStringUtils::TrimEnd(*m_str);
+	}
+
+	std::string NString::GetTrimLeft(void) const
+	{
+		return NStringUtils::TrimBegin(*m_str);
+	}
+
+	void NString::TrimLeft(void)
+	{
+		*m_str = NStringUtils::TrimBegin(*m_str);
+	}
+
+	std::string NString::GetTrim(void) const
+	{
+		return NStringUtils::FullTrim(*m_str);
+	}
+
+	void NString::Trim(void)
+	{
+		*m_str = NStringUtils::FullTrim(*m_str);
+	}
+
+	std::string NString::GetUpper(void) const
+	{
+		return NStringUtils::ToUpper(*m_str);
+	}
+
+	void NString::ToUpper(void)
+	{
+		*m_str = NStringUtils::ToUpper(*m_str);
+	}
+
+	std::string NString::GetLower(void) const
+	{
+		return NStringUtils::ToLower(*m_str);
+	}
+
+	void NString::ToLower(void)
+	{
+		*m_str = NStringUtils::ToLower(*m_str);
+	}
+
+	void NString::Clear(void)
+	{
+		*m_str = "";
+	}
+
+	std::string NString::SubString(size_t from, size_t to) const
+	{
+		return NStringUtils::SubString(*m_str, from, to);
+	}
+
+	std::string& NString::GetString(void)
+	{
+		return *m_str;
+	}
+
+	std::string& NString::operator()(void)
+	{
+		return *m_str;
+	}
+
+	std::string NString::operator()(size_t from, size_t to) const
+	{
+		return SubString(from, to);
+	}
+
+	std::string NString::AsString(void) const
+	{
+		return *m_str;
+	}
+
+	std::string& NString::AsStringRef(void)
+	{
+		return *m_str;
+	}
+
+	void NString::Load(const std::string& str)
+	{
+		*m_str = str;
+	}
+
+	void NString::Load(const std::wstring& wstr)
+	{
+		*m_str = NStringUtils::ToNarrow(wstr);
+	}
+
+	void NString::Load(char* str)
+	{
+		*m_str = str;
+	}
+
+	void NString::Load(wchar_t* str)
+	{
+		*m_str = NStringUtils::ToNarrow(std::wstring(str));
+	}
+
+	void NString::Load(std::vector<char> vecstr)
+	{
+		*m_str = "";
+		for (const auto& c : vecstr)
 		{
-			retc[i] = tolower(retc[i]);
-			i++;
+			*m_str += c;
 		}
-		retc[0] = toupper(retc[0]);
-		return retc;
 	}
 
-	wchar_t* NString::SubString(wchar_t* str, int s_size, int from, int to)
+	void NString::Load(std::vector<wchar_t> vecwstr)
 	{
-		if (from < 0 || to >= s_size || to < from || from >= s_size || from > to)
+		std::wstring wstr;
+		for (const auto& c : vecwstr)
 		{
-			return nullptr;
+			wstr += c;
 		}
-
-		std::wstring tmp = str;
-		return (wchar_t*)tmp.substr(from, to - from).c_str();
+		*m_str = NStringUtils::ToNarrow(wstr);
 	}
 
-	std::string NString::ToUpper(std::string temp)
+	void NString::Load(std::vector<std::string> vecstr)
 	{
-		int i = 0;
-		while (temp[i])
+		*m_str = "";
+		for (const auto& s : vecstr)
 		{
-			temp[i] = toupper(temp[i]);
-			i++;
+			*m_str += s;
 		}
-		return temp;
 	}
 
-	std::string NString::ToLower(std::string temp)
+	void NString::Load(std::vector<std::wstring> vecwstr)
 	{
-		int i = 0;
-		while (temp[i])
+		*m_str = "";
+		for (const auto& s : vecwstr)
 		{
-			temp[i] = tolower(temp[i]);
-			i++;
+			*m_str += NStringUtils::ToNarrow(s);
 		}
-		return temp;
 	}
 
-	std::string NString::ProperizeWord(std::string temp)
+	void NString::Load(std::vector<char*> veccstr)
 	{
-		int i = 0;
-		while (temp[i])
+		*m_str = "";
+		for (size_t i = 0; i < veccstr.size(); i++)
 		{
-			temp[i] = tolower(temp[i]);
-			i++;
+			std::string tmp = veccstr[i];
+			*m_str += tmp;
 		}
-		temp[0] = toupper(temp[0]);
-		return temp;
 	}
 
-	std::string NString::SubString(std::string str, int from, int to)
+	void NString::Load(std::vector<wchar_t*> vecwcstr)
 	{
-		if (from < 0 || to >= (int)str.length() || to < from || from >= (int)str.length() || from > to)
+		*m_str = "";
+		for (size_t i = 0; i < vecwcstr.size(); i++)
 		{
-			return nullptr;
+			std::wstring tmp = vecwcstr[i];
+			*m_str += NStringUtils::ToNarrow(tmp);
 		}
-
-		std::string tmp = str;
-		return tmp.substr(from, to - from);
 	}
 
-	std::wstring NString::ToUpper(std::wstring temp)
+	void NString::Concat(const std::string& rhs)
 	{
-		int i = 0;
-		while (temp[i])
+		*m_str += rhs;
+	}
+
+	void NString::Concat(const std::wstring& rhs)
+	{
+		*m_str += NStringUtils::ToNarrow(rhs);
+	}
+
+	void NString::Concat(char* str)
+	{
+		*m_str += std::string(str);
+	}
+
+	void NString::Concat(wchar_t* str)
+	{
+		*m_str += NStringUtils::ToNarrow(std::wstring(str));
+	}
+
+	void NString::Concat(std::vector<char> vecstr)
+	{
+		for (const auto& c : vecstr)
 		{
-			temp[i] = toupper(temp[i]);
-			i++;
+			*m_str += c;
 		}
-		return temp;
 	}
 
-	std::wstring NString::ToLower(std::wstring temp)
+	void NString::Concat(std::vector<wchar_t> vecwstr)
 	{
-		int i = 0;
-		while (temp[i])
+		std::wstring tmp = NStringUtils::ToWide(*m_str);
+		for (const auto& c : vecwstr)
 		{
-			temp[i] = tolower(temp[i]);
-			i++;
+			tmp += c;
 		}
-		return temp;
+		*m_str = NStringUtils::ToNarrow(tmp);
 	}
 
-	std::wstring NString::ProperizeWord(std::wstring temp)
+	void NString::Concat(std::vector<std::string> vecstr)
 	{
-		int i = 0;
-		while (temp[i])
+		for (const auto& p : vecstr)
 		{
-			temp[i] = tolower(temp[i]);
-			i++;
+			*m_str += p;
 		}
-		temp[0] = toupper(temp[0]);
-		return temp;
 	}
 
-	std::wstring NString::SubString(std::wstring str, int from, int to)
+	void NString::Concat(std::vector<std::wstring> vecwstr)
 	{
-		if (from < 0 || to >= (int)str.length() || to < from || from >= (int)str.length() || from > to)
+		for (const auto& p : vecwstr)
 		{
-			return nullptr;
+			*m_str += NStringUtils::ToNarrow(p);
 		}
-
-		std::wstring tmp = str;
-		return tmp.substr(from, to - from);
 	}
 
-	std::vector<std::string> NString::Split(std::string in_s, const std::string& delim)
+	void NString::Concat(std::vector<char*> veccstr)
 	{
-		std::vector <std::string> retvec;
-		size_t pos = 0;
-		std::string token;
-
-		while ((pos = in_s.find(delim)) != std::string::npos)
+		for (size_t i = 0; i < veccstr.size(); i++)
 		{
-			token = in_s.substr(0, pos);
-			retvec.push_back(token);
-			in_s.erase(0, pos + delim.length());
+			std::string tmp = veccstr[i];
+			*m_str += tmp;
 		}
-
-		retvec.push_back(in_s);
-		return retvec;
 	}
 
-	std::vector<std::wstring> NString::Split(std::wstring in_s, const std::wstring & delim)
+	void NString::Concat(std::vector<wchar_t*> vecwcstr)
 	{
-		std::vector <std::wstring> retvec;
-		size_t pos = 0;
-		std::wstring token;
-
-		while ((pos = in_s.find(delim)) != std::wstring::npos)
+		for (size_t i = 0; i < vecwcstr.size(); i++)
 		{
-			token = in_s.substr(0, pos);
-			retvec.push_back(token);
-			in_s.erase(0, pos + delim.length());
+			std::wstring tmp = vecwcstr[i];
+			*m_str += NStringUtils::ToNarrow(tmp);
 		}
-
-		retvec.push_back(in_s);
-		return retvec;
 	}
 
-	std::vector<std::string> NString::SplitNoEmpty(std::string in_s, const std::string & delim)
+	std::string NString::operator+(const std::string& rhs) const
 	{
-		std::vector <std::string> retvec;
-		size_t pos = 0;
-		std::string token;
+		return *m_str + rhs;
+	}
 
-		while ((pos = in_s.find(delim)) != std::string::npos)
+	std::string NString::operator+(const std::wstring& wstr) const
+	{
+		return *m_str + NStringUtils::ToNarrow(wstr);
+	}
+
+	std::string NString::operator+(char* str) const
+	{
+		return *m_str + std::string(str);
+	}
+
+	std::string NString::operator+(wchar_t* str) const
+	{
+		return *m_str + NStringUtils::ToNarrow(std::wstring(str));
+	}
+
+	std::string NString::operator+(std::vector<char> vecstr) const
+	{
+		std::string out = *m_str;
+		for (const auto& c : vecstr)
 		{
-			token = in_s.substr(0, pos);
-			retvec.push_back(token);
-			in_s.erase(0, pos + delim.length());
+			out += c;
 		}
+		return out;
+	}
 
-		retvec.push_back(in_s);
-		
-		std::vector<std::string> propervec;
-		for (const std::string& val : retvec)
+	std::string NString::operator+(std::vector<wchar_t> vecwstr) const
+	{
+		std::wstring out = NStringUtils::ToWide(*m_str);
+		for (const auto& c : vecwstr)
 		{
-			if (val != "")
-			{
-				propervec.push_back(val);
-			}
+			out += c;
 		}
-		return propervec;
+		return NStringUtils::ToNarrow(out);
 	}
 
-	std::vector<std::wstring> NString::SplitNoEmpty(std::wstring in_s, const std::wstring & delim)
+	std::string NString::operator+(std::vector<std::string> vecstr) const
 	{
-		std::vector <std::wstring> retvec;
-		size_t pos = 0;
-		std::wstring token;
-
-		while ((pos = in_s.find(delim)) != std::wstring::npos)
+		std::string out = *m_str;
+		for (const auto& c : vecstr)
 		{
-			token = in_s.substr(0, pos);
-			retvec.push_back(token);
-			in_s.erase(0, pos + delim.length());
+			out += c;
 		}
+		return out;
+	}
 
-		retvec.push_back(in_s);
-
-		std::vector<std::wstring> propervec;
-		for (const std::wstring& val : retvec)
+	std::string NString::operator+(std::vector<std::wstring> vecstr) const
+	{
+		std::string out = *m_str;
+		for (const auto& c : vecstr)
 		{
-			if (val != L"")
-			{
-				propervec.push_back(val);
-			}
+			out += NStringUtils::ToNarrow(c);
 		}
-		return propervec;
+		return out;
 	}
 
-	std::wstring NString::ToWide(std::string in)
+	std::string NString::operator+(std::vector<char*> veccstr) const
 	{
-		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-		return converter.from_bytes(in);
-	}
-
-	std::string NString::ToNarrow(std::wstring in)
-	{
-		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-		return converter.to_bytes(in);
-	}
-
-	std::vector<std::string> NString::ToVector(std::string temp)
-	{
-		return SplitNoEmpty(temp, "\n");
-	}
-
-	std::string NString::FromVector(std::vector<std::string> temp)
-	{
-		std::string retS;
-		for (const auto& p : temp)
+		std::string out = *m_str;
+		for (size_t i = 0; i < veccstr.size(); i++)
 		{
-			retS += p;
-			retS += "\n";
+			std::string tmp = veccstr[i];
+			out += tmp;
 		}
-		return retS;
+		return out;
 	}
 
-	std::vector<std::wstring> NString::ToVector(std::wstring temp)
+	std::string NString::operator+(std::vector<wchar_t*> vecwcstr) const
 	{
-		return SplitNoEmpty(temp, L"\n");
-	}
-
-	std::wstring NString::FromVector(std::vector<std::wstring> temp)
-	{
-		std::wstring retS;
-		for (const auto& p : temp)
+		std::string out = *m_str;
+		for (size_t i = 0; i < vecwcstr.size(); i++)
 		{
-			retS += p;
-			retS += L"\n";
+			std::wstring tmp = vecwcstr[i];
+			out += NStringUtils::ToNarrow(tmp);
 		}
-		return retS;
+		return out;
 	}
 
-	std::string NString::FullTrim(std::string temp)
+	void NString::operator+=(const std::string& rhs)
 	{
-		return TrimBegin(TrimEnd(temp));
+		*m_str += rhs;
 	}
 
-	std::wstring NString::FullTrim(std::wstring temp)
+	void NString::operator+=(const std::wstring& rhs)
 	{
-		return TrimBegin(TrimEnd(temp));
+		*m_str += NStringUtils::ToNarrow(rhs);
 	}
 
-	std::string NString::TrimBegin(std::string temp)
+	void NString::operator+=(char* str)
 	{
-		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) {
-			return !std::isspace(ch);
-		}));
-		return temp;
+		*m_str += std::string(str);
 	}
 
-	std::wstring NString::TrimBegin(std::wstring temp)
+	void NString::operator+=(wchar_t* str)
 	{
-		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) {
-			return !std::isspace(ch);
-		}));
-		return temp;
+		*m_str += NStringUtils::ToNarrow(std::wstring(str));
 	}
 
-	std::string NString::TrimEnd(std::string temp)
+	void NString::operator+=(std::vector<char> vecstr)
 	{
-		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch) {
-			return !std::isspace(ch);
-		}).base(), temp.end());
-		return temp;
+		for (const auto& c : vecstr)
+		{
+			*m_str += c;
+		}
 	}
 
-	std::wstring NString::TrimEnd(std::wstring temp)
+	void NString::operator+=(std::vector<wchar_t> vecwstr)
 	{
-		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch) {
-			return !std::isspace(ch);
-		}).base(), temp.end());
-		return temp;
+		std::wstring tmp = NStringUtils::ToWide(*m_str);
+		for (const auto& c : vecwstr)
+		{
+			tmp += c;
+		}
+		*m_str = NStringUtils::ToNarrow(tmp);
 	}
 
+	void NString::operator+=(std::vector<std::string> vecstr)
+	{
+		for (const auto& p : vecstr)
+		{
+			*m_str += p;
+		}
+	}
+
+	void NString::operator+=(std::vector<std::wstring> vecwstr)
+	{
+		for (const auto& p : vecwstr)
+		{
+			*m_str += NStringUtils::ToNarrow(p);
+		}
+	}
+
+	void NString::operator+=(std::vector<char*> veccstr)
+	{
+		for (size_t i = 0; i < veccstr.size(); i++)
+		{
+			std::string tmp = veccstr[i];
+			*m_str += tmp;
+		}
+	}
+
+	void NString::operator+=(std::vector<wchar_t*> vecwcstr)
+	{
+		for (size_t i = 0; i < vecwcstr.size(); i++)
+		{
+			std::wstring tmp = vecwcstr[i];
+			*m_str += NStringUtils::ToNarrow(tmp);
+		}
+	}
+
+	void NString::operator=(const std::string& str)
+	{
+		*m_str = str;
+	}
+
+	void NString::operator=(const std::wstring& wstr)
+	{
+		*m_str = NStringUtils::ToNarrow(wstr);
+	}
+
+	void NString::operator=(char* str)
+	{
+		*m_str = str;
+	}
+
+	void NString::operator=(wchar_t* str)
+	{
+		*m_str = NStringUtils::ToNarrow(std::wstring(str));
+	}
+
+	void NString::operator=(std::vector<char> vecstr)
+	{
+		*m_str = "";
+		for (const auto& c : vecstr)
+		{
+			*m_str += c;
+		}
+	}
+
+	void NString::operator=(std::vector<wchar_t> vecwstr)
+	{
+		std::wstring wstr;
+		for (const auto& c : vecwstr)
+		{
+			wstr += c;
+		}
+		*m_str = NStringUtils::ToNarrow(wstr);
+	}
+
+	void NString::operator=(std::vector<std::string> vecstr)
+	{
+		*m_str = "";
+		for (const auto& s : vecstr)
+		{
+			*m_str += s;
+		}
+	}
+
+	void NString::operator=(std::vector<std::wstring> vecwstr)
+	{
+		*m_str = "";
+		for (const auto& s : vecwstr)
+		{
+			*m_str += NStringUtils::ToNarrow(s);
+		}
+	}
+
+	void NString::operator=(std::vector<char*> veccstr)
+	{
+		*m_str = "";
+		for (size_t i = 0; i < veccstr.size(); i++)
+		{
+			std::string tmp = veccstr[i];
+			*m_str += tmp;
+		}
+	}
+
+	void NString::operator=(std::vector<wchar_t*> vecwcstr)
+	{
+		*m_str = "";
+		for (size_t i = 0; i < vecwcstr.size(); i++)
+		{
+			std::wstring tmp = vecwcstr[i];
+			*m_str += NStringUtils::ToNarrow(tmp);
+		}
+	}
+
+	std::wstring NString::GetWide(void) const
+	{
+		return NStringUtils::ToWide(*m_str);
+	}
+
+	void NString::LoadWide(std::wstring inwstr)
+	{
+		*m_str = NStringUtils::ToNarrow(inwstr);
+	}
+
+	void NString::Allocate(void)
+	{
+		if (m_str)
+		{
+			Release();
+		}
+
+		m_str = new std::string();
+		*m_str = "";
+	}
+
+	void NString::Release(void)
+	{
+		delete m_str;
+	}
 }
