@@ -36,6 +36,7 @@
     <ClInclude Include="NRegistry.h" />
     <ClInclude Include="NRelease.h" />
     <ClInclude Include="NString.h" />
+    <ClInclude Include="NStringUtils.h" />
     <ClInclude Include="NWindows.h" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +52,7 @@
     <ClCompile Include="NPerfectChance.cpp" />
     <ClCompile Include="NRegistry.cpp" />
     <ClCompile Include="NString.cpp" />
+    <ClCompile Include="NStringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLib" />
