@@ -1,6 +1,8 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
 #include "NString.h"
+#include <algorithm> 
+#include <cctype>
 #include <locale>
 #include <codecvt>
 
@@ -340,25 +342,34 @@ namespace NLib
 
 	std::string NString::TrimBegin(std::string temp)
 	{
-		temp.erase(0, temp.find_first_not_of(" \t\n\r\f\v"));
+		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) {
+			return !std::isspace(ch);
+		}));
 		return temp;
 	}
 
 	std::wstring NString::TrimBegin(std::wstring temp)
 	{
-		temp.erase(0, temp.find_first_not_of(L" \t\n\r\f\v"));
+		temp.erase(temp.begin(), std::find_if(temp.begin(), temp.end(), [](int ch) {
+			return !std::isspace(ch);
+		}));
 		return temp;
 	}
 
 	std::string NString::TrimEnd(std::string temp)
 	{
-		temp.erase(temp.find_last_not_of(" \t\n\r\f\v") + 1);
+		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch) {
+			return !std::isspace(ch);
+		}).base(), temp.end());
 		return temp;
 	}
 
 	std::wstring NString::TrimEnd(std::wstring temp)
 	{
-		temp.erase(temp.find_last_not_of(L" \t\n\r\f\v") + 1);
+		temp.erase(std::find_if(temp.rbegin(), temp.rend(), [](int ch) {
+			return !std::isspace(ch);
+		}).base(), temp.end());
 		return temp;
 	}
+
 }
