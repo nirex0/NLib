@@ -23,25 +23,25 @@ namespace NLib
 		return m_binding;
 	}
 
-	NBinding* NLogicalBound::Function(void) const
+	BindAnnex* NLogicalBound::Function(void) const
 	{
 		return m_annex;
 	}
 
-	NBinding* NLogicalBound::Function(NBinding intake)
+	BindAnnex* NLogicalBound::Function(BindAnnex intake)
 	{
 		m_annex = &intake;
 		return m_annex;
 	}
 
-	void NLogicalBound::operator=(NBinding rhs)
+	void NLogicalBound::operator=(BindAnnex rhs)
 	{
 		m_annex = &rhs;
 	}
 
 	void NLogicalBound::operator()(void)
 	{
-		NBinding current;
+		BindAnnex current;
 		if (m_annex)
 		{
 			current = *m_annex;
@@ -51,7 +51,7 @@ namespace NLib
 
 	void NLogicalBound::Run(void)
 	{
-		NBinding current;
+		BindAnnex current;
 		if (m_annex)
 		{
 			current = *m_annex;
