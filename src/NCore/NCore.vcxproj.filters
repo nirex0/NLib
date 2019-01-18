@@ -34,6 +34,12 @@
     <Filter Include="Ease of Access Header Files">
       <UniqueIdentifier>{19a6e94a-1a9a-4e1d-ae97-fa2518928626}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Wrappers">
+      <UniqueIdentifier>{fb9679dc-d568-4ff3-937d-db6afbd5f8a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Wrappers">
+      <UniqueIdentifier>{cff96e7d-8d71-477a-a4db-3a0ad39bab59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NLib.h">
@@ -78,9 +84,6 @@
     <ClInclude Include="NFile.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="NString.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="NBigInt.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
@@ -89,6 +92,12 @@
     </ClInclude>
     <ClInclude Include="NFunctions.h">
       <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NStringUtils.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NString.h">
+      <Filter>Header Files\Wrappers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +125,6 @@
     <ClCompile Include="NFile.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="NString.cpp">
-      <Filter>Source Files\Utility</Filter>
-    </ClCompile>
     <ClCompile Include="NBigInt.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
@@ -127,6 +133,12 @@
     </ClCompile>
     <ClCompile Include="NPerfectChance.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="NStringUtils.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="NString.cpp">
+      <Filter>Source Files\Wrappers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
