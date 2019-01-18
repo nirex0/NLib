@@ -18,5 +18,6 @@
 
 #include "NFile.h"
 #include "NString.h"
+#include "NStringUtils.h"
 
 #endif // !_N_LIB_H_
