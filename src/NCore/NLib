@@ -17,7 +17,10 @@
 #include "NAsyncArgs.h"
 
 #include "NFile.h"
-#include "NString.h"
 #include "NStringUtils.h"
+
+#include "NString.h"
+#include "NRegex.h"
+#include "NRegexFlags.h"
 
 #endif // !_N_LIB_H_
