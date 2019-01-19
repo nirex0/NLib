@@ -33,6 +33,8 @@
     <ClInclude Include="NMCILinkage.h" />
     <ClInclude Include="NObject.h" />
     <ClInclude Include="NPerfectChance.h" />
+    <ClInclude Include="NRegex.h" />
+    <ClInclude Include="NRegexFlags.h" />
     <ClInclude Include="NRegistry.h" />
     <ClInclude Include="NRelease.h" />
     <ClInclude Include="NString.h" />
@@ -50,6 +52,7 @@
     <ClCompile Include="NLogicalBound.cpp" />
     <ClCompile Include="NObject.cpp" />
     <ClCompile Include="NPerfectChance.cpp" />
+    <ClCompile Include="NRegex.cpp" />
     <ClCompile Include="NRegistry.cpp" />
     <ClCompile Include="NString.cpp" />
     <ClCompile Include="NStringUtils.cpp" />
