@@ -56,6 +56,13 @@ namespace NLib
 
 		static std::string TrimEnd(std::string temp);
 		static std::wstring TrimEnd(std::wstring temp);
+
+		static std::string Replace(std::string str, std::string original, std::string rps);
+		static std::wstring Replace(std::wstring wstr, std::wstring original, std::wstring rps);
+		 	  
+		static std::string RegexReplace(std::string str, std::string original, std::string rps);
+		static std::wstring RegexReplace(std::wstring wstr, std::wstring original, std::wstring rps);
+
 	};
 }
 

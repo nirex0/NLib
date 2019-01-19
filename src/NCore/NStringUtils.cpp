@@ -5,6 +5,7 @@
 #include <cctype>
 #include <locale>
 #include <codecvt>
+#include <regex>
 
 namespace NLib
 {
@@ -370,6 +371,28 @@ namespace NLib
 			return !std::isspace(ch);
 		}).base(), temp.end());
 		return temp;
+	}
+
+	std::string NStringUtils::Replace(std::string str, std::string original, std::string rps)
+	{
+		str.replace(str.find(original), original.length(), rps);
+		return str;
+	}
+
+	std::wstring NStringUtils::Replace(std::wstring wstr, std::wstring original, std::wstring rps)
+	{
+		wstr.replace(wstr.find(original), original.length(), rps);
+		return wstr;
+	}
+
+	std::string NStringUtils::RegexReplace(std::string str, std::string original, std::string rps)
+	{
+		return std::regex_replace(str, std::regex(original), rps);
+	}
+
+	std::wstring NStringUtils::RegexReplace(std::wstring wstr, std::wstring original, std::wstring rps)
+	{
+		return ToWide(std::regex_replace(ToNarrow(wstr), std::regex(ToNarrow(original)), ToNarrow(rps)));
 	}
 
 }
