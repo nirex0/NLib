@@ -42,6 +42,18 @@ namespace NLib
 
 		void Clear(void);
 
+		void Replace(char original, char rpc, size_t from, size_t to);
+		void Replace(std::string original, std::string rps);
+		void Replace(std::wstring original, std::wstring rps);
+		void RegexReplace(std::string original, std::string rps);
+		void RegexReplace(std::wstring original, std::wstring rps);
+
+		std::string GetReplaced(char original, char rpc, size_t from, size_t to);
+		std::string GetReplaced(std::string original, std::string rps);
+		std::string GetReplaced(std::wstring original, std::wstring rps);
+		std::string GetRegexReplaced(std::string original, std::string rps);
+		std::string GetRegexReplaced(std::wstring original, std::wstring rps);
+
 		std::string SubString(size_t from, size_t to) const;
 		std::string& GetString(void);
 		std::string& operator()(void);

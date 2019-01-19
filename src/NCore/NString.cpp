@@ -1,6 +1,7 @@
 // © 2018 NIREX ALL RIGHTS RESERVED
 
 #include "NString.h"
+#include <regex>
 
 namespace NLib
 {
@@ -154,6 +155,104 @@ namespace NLib
 	void NString::Clear(void)
 	{
 		*m_str = "";
+	}
+
+	void NString::Replace(char original, char rpc, size_t from, size_t to)
+	{
+		if (from >= to)
+		{
+			return;
+		}
+
+		if (to > (*m_str).length())
+		{
+			return;
+		}
+
+		for (size_t i = from; i < to; i++)
+		{
+			if ((*m_str)[i] == original)
+			{
+				(*m_str)[i] = rpc;
+			}
+		}
+	}
+
+	void NString::Replace(std::string original, std::string rps)
+	{
+		m_str->replace(m_str->find(original), original.length(), rps);
+	}
+
+	void NString::Replace(std::wstring original, std::wstring rps)
+	{
+		m_str->replace(m_str->find(NStringUtils::ToNarrow(original)), original.length(), NStringUtils::ToNarrow(rps));
+	}
+
+	void NString::RegexReplace(std::string original, std::string rps)
+	{
+		*m_str = std::regex_replace(*m_str, std::regex(original), rps);
+	}
+
+	void NString::RegexReplace(std::wstring original, std::wstring rps)
+	{
+		*m_str = std::regex_replace(*m_str, std::regex(NStringUtils::ToNarrow(original)), NStringUtils::ToNarrow(rps));
+	}
+
+	std::string NString::GetReplaced(char original, char rpc, size_t from, size_t to)
+	{
+		std::string retstr;
+		retstr = *m_str;
+		if (from >= to)
+		{
+			return retstr;
+		}
+
+		if (to > retstr.length())
+		{
+			return retstr;
+		}
+
+		for (size_t i = from; i < to; i++)
+		{
+			if (retstr[i] == original)
+			{
+				retstr[i] = rpc;
+			}
+		}
+
+		return retstr;
+	}
+
+	std::string NString::GetReplaced(std::string original, std::string rps)
+	{
+		std::string retstr;
+		retstr = *m_str;
+		retstr.replace(retstr.find(original), original.length(), rps);
+		return retstr;
+	}
+
+	std::string NString::GetReplaced(std::wstring original, std::wstring rps)
+	{
+		std::string retstr;
+		retstr = *m_str;
+		retstr.replace(retstr.find(NStringUtils::ToNarrow(original)), original.length(), NStringUtils::ToNarrow(rps));
+		return retstr;
+	}
+
+	std::string NString::GetRegexReplaced(std::string original, std::string rps)
+	{
+		std::string retstr;
+		retstr = *m_str;
+		retstr = std::regex_replace(retstr, std::regex(original), rps);
+		return retstr;
+	}
+
+	std::string NString::GetRegexReplaced(std::wstring original, std::wstring rps)
+	{
+		std::string retstr;
+		retstr = *m_str;
+		retstr = std::regex_replace(retstr, std::regex(NStringUtils::ToNarrow(original)), NStringUtils::ToNarrow(rps));
+		return retstr;
 	}
 
 	std::string NString::SubString(size_t from, size_t to) const
