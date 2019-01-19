@@ -29,8 +29,10 @@ namespace NLib
 		NRegex& Then(const std::string& value);
 		NRegex& Find(const std::string& value);
 		NRegex& Maybe(const std::string& value);
+
 		NRegex& Anything(void);
 		NRegex& AnythingBut(const std::string& value);
+
 		NRegex& Something(void);
 		NRegex& SomethingBut(const std::string& value);
 
@@ -76,4 +78,5 @@ namespace NLib
 		friend std::ostream& operator<<(std::ostream &strm, NRegex &v);
 	};
 }
+
 #endif // !_N_REGEX_H_
