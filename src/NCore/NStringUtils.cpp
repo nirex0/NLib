@@ -394,5 +394,4 @@ namespace NLib
 	{
 		return ToWide(std::regex_replace(ToNarrow(wstr), std::regex(ToNarrow(original)), ToNarrow(rps)));
 	}
-
 }
