@@ -79,7 +79,7 @@ namespace NLib
 
 	std::string NRegex::Replace(const std::string& source, const std::string& value)
 	{
-		return std::regex_replace(source, std::regex(pattern, check_flags()), value);
+		return std::regex_replace(source, std::regex(pattern, CheckFlags()), value);
 	}
 
 	NRegex& NRegex::Linebreak(void)
@@ -261,24 +261,24 @@ namespace NLib
 
 	bool NRegex::Test(const std::string& value)
 	{
-		const std::string to_test = (modifiers& RXF_MULTILINE) ? value : reduce_lines(value);
+		const std::string to_test = (modifiers& RXF_MULTILINE) ? value : ReduceLines(value);
 
 		if (modifiers& RXF_GLOBAL)
 		{
-			return std::regex_search(to_test, std::regex(pattern, check_flags()));
+			return std::regex_search(to_test, std::regex(pattern, CheckFlags()));
 		}
 		else
 		{
-			return std::regex_match(to_test, std::regex(pattern, check_flags()));
+			return std::regex_match(to_test, std::regex(pattern, CheckFlags()));
 		}
 	}
 
-	std::regex::flag_type NRegex::check_flags(void) const
+	std::regex::flag_type NRegex::CheckFlags(void) const
 	{
 		return (modifiers& RXF_CASEINSENSITIVE) ? std::regex::icase : static_cast<std::regex::flag_type>(0);
 	}
 
-	std::string NRegex::reduce_lines(const std::string& value) const
+	std::string NRegex::ReduceLines(const std::string& value) const
 	{
 		const std::size_t pos = value.find("\n");
 

@@ -71,8 +71,8 @@ namespace NLib
 		std::string pattern;
 		unsigned int modifiers;
 
-		std::regex::flag_type check_flags(void) const;
-		std::string reduce_lines(const std::string& value) const;
+		std::regex::flag_type CheckFlags(void) const;
+		std::string ReduceLines(const std::string& value) const;
 		friend std::ostream& operator<<(std::ostream &strm, NRegex &v);
 	};
 }
