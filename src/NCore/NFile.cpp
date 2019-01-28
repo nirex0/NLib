@@ -1,6 +1,8 @@
 //© 2018 NIREX ALL RIGHTS RESERVED
 
 #include "NFile.h"
+#include "NWindows.h"
+#include "NStringUtils.h"
 
 namespace NLib
 {
@@ -150,6 +152,50 @@ namespace NLib
 			return false;
 		}
 		return true;
+	}
+
+	std::vector<std::string> NFile::GetFiles(std::string folder)
+	{
+		std::vector<std::string> names;
+		std::wstring search_path = NStringUtils::ToWide(folder) + L"/*.*";
+
+		WIN32_FIND_DATA fd;
+		HANDLE hFind = FindFirstFileW(search_path.c_str(), &fd);
+
+		if (hFind != INVALID_HANDLE_VALUE)
+		{
+			do
+			{
+				if (!(fd.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY))
+				{
+					names.push_back(NStringUtils::ToNarrow(fd.cFileName));
+				}
+			} while (FindNextFile(hFind, &fd));
+			FindClose(hFind);
+		}
+		return names;
+	}
+
+	std::vector<std::wstring> NFile::GetFiles(std::wstring folder)
+	{
+		std::vector<std::wstring> names;
+		std::wstring search_path = folder + L"/*.*";
+
+		WIN32_FIND_DATA fd;
+		HANDLE hFind = FindFirstFileW(search_path.c_str(), &fd);
+
+		if (hFind != INVALID_HANDLE_VALUE)
+		{
+			do
+			{
+				if (!(fd.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY))
+				{
+					names.push_back(fd.cFileName);
+				}
+			} while (FindNextFile(hFind, &fd));
+			FindClose(hFind);
+		}
+		return names;
 	}
 	 
 }

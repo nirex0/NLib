@@ -8,6 +8,7 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include <set>
 
 namespace NLib
 {
@@ -28,6 +29,9 @@ namespace NLib
 
 		static NBOOL SafeFread(NPVOID buffer, NINT size, NINT number, FILE* fp);
 		static NBOOL SafeFWrite(NPVOID buffer, NINT size, NINT number, FILE* fp);
+
+		static std::vector<std::string> GetFiles(std::string folder);
+		static std::vector<std::wstring> GetFiles(std::wstring folder);
 	};
 }
 #endif // !_N_FILE_H_
