@@ -197,5 +197,23 @@ namespace NLib
 		}
 		return names;
 	}
+
+	NBOOL NFile::Validate(const std::string& str, const std::set<std::string>& set)
+	{
+		for (const auto& s : set)
+		{
+			if (s == str) return true;
+		}
+		return false;
+	}
+
+	NBOOL NFile::Validate(const std::wstring& str, const std::set<std::wstring>& set)
+	{
+		for (const auto& s : set)
+		{
+			if (s == str) return true;
+		}
+		return false;
+	}
 	 
 }
