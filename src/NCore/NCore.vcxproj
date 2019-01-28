@@ -23,6 +23,7 @@
     <ClInclude Include="NAsyncWorker.h" />
     <ClInclude Include="NAudio.h" />
     <ClInclude Include="NBigInt.h" />
+    <ClInclude Include="NCIO.h" />
     <ClInclude Include="NDefines.h" />
     <ClInclude Include="NEventArgs.h" />
     <ClInclude Include="NFile.h" />
@@ -46,6 +47,7 @@
     <ClCompile Include="NAsyncWorker.cpp" />
     <ClCompile Include="NAudio.cpp" />
     <ClCompile Include="NBigInt.cpp" />
+    <ClCompile Include="NCIO.cpp" />
     <ClCompile Include="NEventArgs.cpp" />
     <ClCompile Include="NFile.cpp" />
     <ClCompile Include="NGenerator.cpp" />
