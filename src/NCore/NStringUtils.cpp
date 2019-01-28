@@ -394,4 +394,22 @@ namespace NLib
 	{
 		return ToWide(std::regex_replace(ToNarrow(wstr), std::regex(ToNarrow(original)), ToNarrow(rps)));
 	}
+
+	NBOOL NStringUtils::Validate(const std::string& str, const std::set<std::string>& set)
+	{
+		for (const auto& s : set)
+		{
+			if (s == str) return true;
+		}
+		return false;
+	}
+
+	NBOOL NStringUtils::Validate(const std::wstring& str, const std::set<std::wstring>& set)
+	{
+		for (const auto& s : set)
+		{
+			if (s == str) return true;
+		}
+		return false;
+	}
 }

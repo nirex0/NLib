@@ -8,7 +8,6 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
-#include <set>
 
 namespace NLib
 {
@@ -32,9 +31,6 @@ namespace NLib
 
 		static std::vector<std::string> GetFiles(std::string folder);
 		static std::vector<std::wstring> GetFiles(std::wstring folder);
-
-		static NBOOL Validate(const std::string& str, const std::set<std::string>& set);
-		static NBOOL Validate(const std::wstring& str, const std::set<std::wstring>& set);
 	};
 }
 #endif // !_N_FILE_H_

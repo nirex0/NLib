@@ -7,6 +7,7 @@
 #include "NObject.h"
 #include <string>
 #include <vector>
+#include <set>
 
 namespace NLib
 {
@@ -63,6 +64,8 @@ namespace NLib
 		static std::string RegexReplace(std::string str, std::string original, std::string rps);
 		static std::wstring RegexReplace(std::wstring wstr, std::wstring original, std::wstring rps);
 
+		static NBOOL Validate(const std::string& str, const std::set<std::string>& set);
+		static NBOOL Validate(const std::wstring& str, const std::set<std::wstring>& set);
 	};
 }
 
