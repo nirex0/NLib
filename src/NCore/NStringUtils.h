@@ -66,6 +66,9 @@ namespace NLib
 
 		static NBOOL Validate(const std::string& str, const std::set<std::string>& set);
 		static NBOOL Validate(const std::wstring& str, const std::set<std::wstring>& set);
+
+		static NLONG Contains(const std::string& str, const::std::string& substr);
+		static NLONG Contains(const std::wstring& str, const::std::wstring& substr);
 	};
 }
 

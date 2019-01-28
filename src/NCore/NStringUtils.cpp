@@ -412,4 +412,24 @@ namespace NLib
 		}
 		return false;
 	}
+
+	NLONG NStringUtils::Contains(const std::string& str, const::std::string& substr)
+	{
+		size_t index = str.find(substr);
+		if (index != std::string::npos)
+		{
+			return index;
+		}
+		return -1;
+	}
+
+	NLONG NStringUtils::Contains(const std::wstring& str, const::std::wstring& substr)
+	{
+		size_t index = str.find(substr);
+		if (index != std::string::npos)
+		{
+			return index;
+		}
+		return -1;
+	}
 }
