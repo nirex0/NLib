@@ -105,6 +105,9 @@
     <ClInclude Include="NRegexFlags.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="NCIO.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
@@ -148,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="NRegex.cpp">
       <Filter>Source Files\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="NCIO.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
