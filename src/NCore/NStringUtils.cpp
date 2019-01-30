@@ -432,4 +432,60 @@ namespace NLib
 		}
 		return -1;
 	}
+
+	std::string NStringUtils::ToHex(const std::string & in_s)
+	{
+		static const char* const lut = "0123456789ABCDEF";
+		size_t len = in_s.length();
+
+		std::string output;
+		output.reserve(2 * len);
+		for (size_t i = 0; i < len; i++)
+		{
+			const unsigned char c = in_s[i];
+			output.push_back(lut[c >> 4]);
+			output.push_back(lut[c & 15]);
+		}
+		return output;
+	}
+
+	std::string NStringUtils::FromHex(const std::string & in_hex)
+	{
+		static const char* const lut = "0123456789ABCDEF";
+		size_t len = in_hex.length();
+		if (len & 1) throw std::invalid_argument("odd length");
+
+		std::string output;
+		output.reserve(len / 2);
+		for (size_t i = 0; i + 1 < len; i += 2)
+		{
+			char a = in_hex[i];
+			const char* p = std::lower_bound(lut, lut + 16, a);
+			if (*p != a) throw std::invalid_argument("not a hex digit");
+
+			char b = in_hex[i + 1];
+			const char* q = std::lower_bound(lut, lut + 16, b);
+			if (*q != b) throw std::invalid_argument("not a hex digit");
+
+			output.push_back(((p - lut) << 4) | (q - lut));
+		}
+		return output;
+	}
+
+	std::string NStringUtils::Replace(std::string in_s, unsigned int index_a, unsigned int index_b)
+	{
+		if (index_a >= in_s.length() || index_b >= in_s.length())
+		{
+			return in_s;
+		}
+		else if (index_a == index_b)
+		{
+			return in_s;
+		}
+
+		char tmp = in_s[index_a];
+		in_s[index_a] = in_s[index_b];
+		in_s[index_b] = tmp;
+		return in_s;
+	}
 }

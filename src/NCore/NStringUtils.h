@@ -69,6 +69,11 @@ namespace NLib
 
 		static NLONG Contains(const std::string& str, const::std::string& substr);
 		static NLONG Contains(const std::wstring& str, const::std::wstring& substr);
+
+		std::string ToHex(const std::string& in_s);
+		std::string FromHex(const std::string& in_hex);
+
+		std::string Replace(std::string in_s, unsigned int index_a, unsigned int index_b);
 	};
 }
 
