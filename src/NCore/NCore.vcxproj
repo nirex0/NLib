@@ -41,6 +41,7 @@
     <ClInclude Include="NString.h" />
     <ClInclude Include="NStringUtils.h" />
     <ClInclude Include="NWindows.h" />
+    <ClInclude Include="NRandom.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NAsyncArgs.cpp" />
@@ -58,6 +59,7 @@
     <ClCompile Include="NRegistry.cpp" />
     <ClCompile Include="NString.cpp" />
     <ClCompile Include="NStringUtils.cpp" />
+    <ClCompile Include="NRandom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLib" />
