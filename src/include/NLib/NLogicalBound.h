@@ -1,4 +1,4 @@
-// © 2018 NIREX ALL RIGHTS RESERVED
+// © 2019 NIREX ALL RIGHTS RESERVED
 
 #ifndef _W_LOGICAL_BOUND_H_
 #define _W_LOGICAL_BOUND_H_
@@ -6,14 +6,12 @@
 #include "NObject.h"
 #include "NEventArgs.h"
 
+#include "NFunctions.h"
 #include "NDefines.h"
 #include <vector>
-#include <functional>
 
 namespace NLib
 {
-	typedef std::function<void(bool&)> NBinding;
-
 	class NAPI NLogicalBound : public NObject
 	{
 	public:
@@ -23,17 +21,17 @@ namespace NLib
 		bool Binding(void) const;
 		bool Binding(bool intake);
 
-		NBinding* Function(void) const;
-		NBinding* Function(NBinding intake);
+		BindAnnex* Function(void) const;
+		BindAnnex* Function(BindAnnex intake);
 
-		void operator=(NBinding rhs);
+		void operator=(BindAnnex rhs);
 		void operator()(void);
 
 		void Run(void);
 
 	private:
 		bool m_binding;
-		NBinding* m_annex;
+		BindAnnex* m_annex;
 	};
 }
 
