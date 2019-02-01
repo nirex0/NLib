@@ -1,4 +1,4 @@
-// © 2018 NIREX ALL RIGHTS RESERVED
+// © 2019 NIREX ALL RIGHTS RESERVED
 
 #ifndef _N_LIB_H_
 #define _N_LIB_H_
@@ -17,6 +17,11 @@
 #include "NAsyncArgs.h"
 
 #include "NFile.h"
+#include "NStringUtils.h"
+#include "NRandom.h"
+
 #include "NString.h"
+#include "NRegex.h"
+#include "NRegexFlags.h"
 
 #endif // !_N_LIB_H_
