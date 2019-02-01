@@ -11,7 +11,7 @@ namespace NLib
 		return std::generate_canonical<double, 128>(rng);
 	}
 
-	NULONGLONG NumberManip::Stretch(double number, NULONGLONG min, NULONGLONG max)
+	NULONGLONG NRandom::Stretch(double number, NULONGLONG min, NULONGLONG max)
 	{
 		if (number > 1) number = 1;
 		else if (number < 0) number = 0;
