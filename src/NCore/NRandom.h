@@ -3,25 +3,29 @@
 #ifndef _N_RANDOM_H_
 #define _N_RANDOM_H_
 
+#include "NDefines.h"
 #include <random>
 
-class NRandom
+namespace NLib
 {
-public:
-	NRandom(void);
-	~NRandom(void);
-	double Next(void);
+	class NAPI NRandom
+	{
+	public:
+		//NRandom(void);
+		//~NRandom(void);
+		double Next(void);
 
-private:
-	std::mt19937 rng;
-	std::uniform_real_distribution<std::mt19937::result_type>* udist;
-};
+	private:
 
-class NumberManip
-{
-	using ULongLong = unsigned long long;
-public:
-	static ULongLong Stretch(double number, ULongLong min, ULongLong max);
-};
+	};
 
+	class NAPI NumberManip
+	{
+	public:
+		static NULONGLONG Stretch(double number, NULONGLONG min, NULONGLONG max);
+	};
+}
 #endif // !_N_RANDOM_H_
+
+
+

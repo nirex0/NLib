@@ -3,36 +3,25 @@
 #include "NRandom.h"
 #include <time.h>
 
-using ULongLong = unsigned long long;
-
-NRandom::NRandom(void)
+namespace NLib
 {
-	udist = new std::uniform_real_distribution<std::mt19937::result_type>(0, 1);
-	std::mt19937::result_type const seedval = time(0);
-	rng.seed(seedval);
-}
+	double NRandom::Next(void)
+	{
+		static std::mt19937 rng(std::random_device{}());
+		return std::generate_canonical<double, 128>(rng);
+	}
 
-NRandom::~NRandom(void)
-{
-	delete udist;
-}
+	NULONGLONG NumberManip::Stretch(double number, NULONGLONG min, NULONGLONG max)
+	{
+		if (number > 1) number = 1;
+		else if (number < 0) number = 0;
 
-double NRandom::Next(void)
-{
-	std::mt19937::result_type random_number = (*udist)(rng);
-	return random_number;
-}
+		unsigned char numberPct = number * 100;
+		unsigned long long range = max - min;
+		unsigned long long rangePct = range / 100;
+		unsigned long long rangeNumber = rangePct * numberPct;
+		unsigned long long llNumber = rangeNumber + min;
 
-ULongLong NumberManip::Stretch(double number, ULongLong min, ULongLong max)
-{
-	if (number > 1) number = 1;
-	else if (number < 0) number = 0;
-
-	unsigned char numberPct = number * 100;
-	unsigned long long range = max - min;
-	unsigned long long rangePct = range / 100;
-	unsigned long long rangeNumber = rangePct * numberPct;
-	unsigned long long llNumber = rangeNumber + min;
-
-	return llNumber;
+		return llNumber;
+	}
 }
