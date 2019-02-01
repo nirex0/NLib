@@ -4,24 +4,15 @@
 #define _N_RANDOM_H_
 
 #include "NDefines.h"
+#include "NObject.h"
 #include <random>
 
 namespace NLib
 {
-	class NAPI NRandom
+	class NAPI NRandom final : public NObject
 	{
 	public:
-		//NRandom(void);
-		//~NRandom(void);
-		double Next(void);
-
-	private:
-
-	};
-
-	class NAPI NumberManip
-	{
-	public:
+		static double Next(void);
 		static NULONGLONG Stretch(double number, NULONGLONG min, NULONGLONG max);
 	};
 }
