@@ -18,6 +18,7 @@
 
 #include "NFile.h"
 #include "NStringUtils.h"
+#include "NRandom.h"
 
 #include "NString.h"
 #include "NRegex.h"
