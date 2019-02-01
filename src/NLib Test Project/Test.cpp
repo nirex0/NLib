@@ -1,10 +1,14 @@
 #pragma comment (lib, "NCore86d.lib")
-#include <NLib\NFile.h>
+#include <NLib\NRandom.h>
 
 int main()
 {
-	NLib::NFile f;
-	f.WriteAllText("Test.txt", "test");
+
+	NLib::NRandom nr;
+	NLib::NumberManip nmp;
+	double nrx = nr.Next();
+
+	long long nsx = nmp.Stretch(nrx, 50, 333);
 
 	return 0;
 }
