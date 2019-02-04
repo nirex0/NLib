@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Wrappers">
       <UniqueIdentifier>{cff96e7d-8d71-477a-a4db-3a0ad39bab59}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Primitives">
+      <UniqueIdentifier>{b27e31b1-81ce-483c-b58e-37e0300988e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Primitives">
+      <UniqueIdentifier>{1260c5b2-c6a0-4490-be95-f54f33c5b20a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NLib.h">
@@ -111,6 +117,10 @@
     <ClInclude Include="NRandom.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="NRelativeChance.h" />
+    <ClInclude Include="NPair.h">
+      <Filter>Header Files\Primitives</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
@@ -160,6 +170,10 @@
     </ClCompile>
     <ClCompile Include="NRandom.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="NRelativeChance.cpp" />
+    <ClCompile Include="NPair.cpp">
+      <Filter>Source Files\Primitives</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
