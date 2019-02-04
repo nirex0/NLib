@@ -217,7 +217,8 @@ namespace NLib
 
 		closedir(dir);
 	}
-	std::vector<std::wstring> NFile::GetDirectories(const std::wstring & folder)
+
+	std::vector<std::wstring> NFile::GetDirectories(const std::wstring& folder)
 	{
 		DIR *dir = opendir(NStringUtils::ToNarrow(folder).c_str());
 
@@ -234,5 +235,44 @@ namespace NLib
 		}
 
 		closedir(dir);
+	}
+
+	std::vector<std::string> NFile::GetEntities(const std::string& folder)
+	{
+		std::vector<std::string> files = GetFiles(folder);
+		std::vector<std::string> folders = GetDirectories(folder);
+		std::vector<std::string> retVec;
+
+		for (size_t i = 0; i < folders.size(); i++)
+		{
+			retVec.push_back(folders[i]);
+		}
+
+		for (size_t i = 0; i < files.size(); i++)
+		{
+			retVec.push_back(files[i]);
+		}
+
+		return retVec;
+	}
+
+	std::vector<std::wstring> NFile::GetEntities(const std::wstring& folder)
+	{
+		std::vector<std::wstring> files = GetFiles(folder);
+		std::vector<std::wstring> folders = GetDirectories(folder);
+		std::vector<std::wstring> retVec;
+
+		for (size_t i = 0; i < folders.size(); i++)
+		{
+			retVec.push_back(folders[i]);
+		}
+
+		for (size_t i = 0; i < files.size(); i++)
+		{
+			retVec.push_back(files[i]);
+		}
+
+		return retVec;
+
 	}
 }
