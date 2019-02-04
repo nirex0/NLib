@@ -29,8 +29,11 @@ namespace NLib
 		static NBOOL SafeFread(NPVOID buffer, NINT size, NINT number, FILE* fp);
 		static NBOOL SafeFWrite(NPVOID buffer, NINT size, NINT number, FILE* fp);
 
-		static std::vector<std::string> GetFiles(std::string folder);
-		static std::vector<std::wstring> GetFiles(std::wstring folder);
+		static std::vector<std::string> GetFiles(const std::string& folder);
+		static std::vector<std::wstring> GetFiles(const std::wstring& folder);
+
+		static std::vector<std::string> GetDirectories(const std::string& folder);
+		static std::vector<std::wstring> GetDirectories(const std::wstring& folder);
 	};
 }
 #endif // !_N_FILE_H_

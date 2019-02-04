@@ -3,6 +3,7 @@
 #include "NFile.h"
 #include "NWindows.h"
 #include "NStringUtils.h"
+#include "NDirent.h"
 
 namespace NLib
 {
@@ -154,7 +155,7 @@ namespace NLib
 		return true;
 	}
 
-	std::vector<std::string> NFile::GetFiles(std::string folder)
+	std::vector<std::string> NFile::GetFiles(const std::string& folder)
 	{
 		std::vector<std::string> names;
 		std::wstring search_path = NStringUtils::ToWide(folder) + L"/*.*";
@@ -176,7 +177,7 @@ namespace NLib
 		return names;
 	}
 
-	std::vector<std::wstring> NFile::GetFiles(std::wstring folder)
+	std::vector<std::wstring> NFile::GetFiles(const std::wstring& folder)
 	{
 		std::vector<std::wstring> names;
 		std::wstring search_path = folder + L"/*.*";
@@ -196,5 +197,42 @@ namespace NLib
 			FindClose(hFind);
 		}
 		return names;
-	}	 
+	}
+
+	std::vector<std::string> NFile::GetDirectories(const std::string& folder)
+	{
+		DIR *dir = opendir(folder.c_str());
+
+		std::vector<std::string> retVec;
+		struct dirent *entry = readdir(dir);
+
+		while (entry != NULL)
+		{
+			if (entry->d_type == DT_DIR)
+			{
+				retVec.push_back(entry->d_name);
+			}
+			entry = readdir(dir);
+		}
+
+		closedir(dir);
+	}
+	std::vector<std::wstring> NFile::GetDirectories(const std::wstring & folder)
+	{
+		DIR *dir = opendir(NStringUtils::ToNarrow(folder).c_str());
+
+		std::vector<std::wstring> retVec;
+		struct dirent *entry = readdir(dir);
+
+		while (entry != NULL)
+		{
+			if (entry->d_type == DT_DIR)
+			{
+				retVec.push_back(NStringUtils::ToWide(entry->d_name));
+			}
+			entry = readdir(dir);
+		}
+
+		closedir(dir);
+	}
 }
