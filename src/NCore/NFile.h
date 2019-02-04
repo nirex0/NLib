@@ -27,7 +27,7 @@ namespace NLib
 		static std::int32_t FindFirst(std::string file, std::string val);
 		static std::vector<int32_t> FindAll(std::string file, std::string val);
 
-		static NBOOL SafeFread(NPVOID buffer, NINT size, NINT number, FILE* fp);
+		static NBOOL SafeFRead(NPVOID buffer, NINT size, NINT number, FILE* fp);
 		static NBOOL SafeFWrite(NPVOID buffer, NINT size, NINT number, FILE* fp);
 
 		static std::vector<std::string> GetFiles(const std::string& folder);
