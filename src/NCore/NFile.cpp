@@ -3,7 +3,6 @@
 #include "NFile.h"
 #include "NWindows.h"
 #include "NStringUtils.h"
-#include "NDirent.h"
 
 namespace NLib
 {
@@ -216,6 +215,7 @@ namespace NLib
 		}
 
 		closedir(dir);
+		return retVec;
 	}
 
 	std::vector<std::wstring> NFile::GetDirectories(const std::wstring& folder)
@@ -235,6 +235,7 @@ namespace NLib
 		}
 
 		closedir(dir);
+		return retVec;
 	}
 
 	std::vector<std::string> NFile::GetEntities(const std::string& folder)

@@ -8,6 +8,7 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include "NDirent.h"
 
 namespace NLib
 {
