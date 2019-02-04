@@ -6,7 +6,7 @@
 
 namespace NLib
 {
-	std::string NFile::ReadAllText(std::string file)
+	std::string NFile::ReadAllText(const std::string& file)
 	{
 		std::ifstream f(file.c_str());
 
@@ -23,7 +23,7 @@ namespace NLib
 		return outstr;
 	}
 
-	NINT NFile::WriteAllText(std::string file, std::string str)
+	NINT NFile::WriteAllText(const std::string& file, const std::string& str)
 	{
 		std::ofstream f;
 		f.open(file);
@@ -32,7 +32,7 @@ namespace NLib
 		return 0;
 	}
 
-	std::vector<std::string> NFile::ReadAllLines(std::string file)
+	std::vector<std::string> NFile::ReadAllLines(const std::string& file)
 	{
 		std::ifstream f(file.c_str());
 		std::vector<std::string> retv;
@@ -47,7 +47,7 @@ namespace NLib
 		return retv;
 	}
 
-	NINT NFile::WriteAllLines(std::string file, std::vector<std::string> vecstr)
+	NINT NFile::WriteAllLines(const std::string& file, std::vector<std::string> vecstr)
 	{
 		std::ofstream f;
 		f.open(file);
@@ -62,7 +62,7 @@ namespace NLib
 		return 0;
 	}
 	
-	std::vector<NCHAR> NFile::ReadAllBytes(std::string fileName)
+	std::vector<NCHAR> NFile::ReadAllBytes(const std::string& fileName)
 	{
 		std::ifstream ifs(fileName, std::ios::binary | std::ios::ate);
 		std::ifstream::pos_type pos = ifs.tellg();
@@ -75,7 +75,7 @@ namespace NLib
 		return result;
 	}
 
-	NINT NFile::WriteAllBytes(std::string fileName, std::vector<NCHAR> vecBytes)
+	NINT NFile::WriteAllBytes(const std::string& fileName, std::vector<NCHAR> vecBytes)
 	{
 		std::ofstream ofs(fileName, std::ios::binary | std::ios::out);
 
@@ -90,7 +90,7 @@ namespace NLib
 		return 0;
 	}
 	
-	std::int32_t NFile::FindFirst(std::string file, std::string val)
+	std::int32_t NFile::FindFirst(const std::string& file, const std::string& val)
 	{
 		std::ifstream f(file.c_str());
 
@@ -108,7 +108,7 @@ namespace NLib
 		return -1;
 	}
 
-	std::vector<int32_t> NFile::FindAll(std::string file, std::string val)
+	std::vector<int32_t> NFile::FindAll(const std::string& file, const std::string& val)
 	{
 		std::ifstream f(file.c_str());
 		std::vector<int32_t> retv;
