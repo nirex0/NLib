@@ -7,7 +7,6 @@
 #define WIN32_LEAN_AND_MEAN
 #endif
 
-
 #define NOGDICAPMASKS
 #define NOMENUS
 #define NOICONS
@@ -1261,4 +1260,4 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-#endif /*DIRENT_H*/
+#endif // !_DIRENT_H_
