@@ -123,6 +123,9 @@
     <ClInclude Include="NRelativeChance.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="NDirent.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
