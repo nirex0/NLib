@@ -24,4 +24,9 @@
 #include "NRegex.h"
 #include "NRegexFlags.h"
 
+#include "NPair.h"
+
+#include "NRelativeChance.h"
+#include "NPerfectChance.h"
+
 #endif // !_N_LIB_H_
