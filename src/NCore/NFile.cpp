@@ -1,4 +1,4 @@
-//© 2019 NIREX ALL RIGHTS RESERVED
+// © 2019 NIREX ALL RIGHTS RESERVED
 
 #include "NFile.h"
 #include "NWindows.h"
