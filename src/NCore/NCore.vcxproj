@@ -25,6 +25,7 @@
     <ClInclude Include="NBigInt.h" />
     <ClInclude Include="NCIO.h" />
     <ClInclude Include="NDefines.h" />
+    <ClInclude Include="NDirent.h" />
     <ClInclude Include="NEventArgs.h" />
     <ClInclude Include="NFile.h" />
     <ClInclude Include="NFunctions.h" />
