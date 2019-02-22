@@ -40,13 +40,13 @@ namespace NLib
 	typedef unsigned long		NULONG;
 	typedef unsigned long long	NULONGLONG;
 
-	typedef int					NSBYTE;
-	typedef char				NSWORD;
+	typedef char				NSBYTE;
+	typedef short				NSWORD;
 	typedef long				NSDWORD;
 	typedef long long			NSQWORD;
 
-	typedef unsigned int		NUBYTE;
-	typedef unsigned char		NUWORD;
+	typedef unsigned char		NUBYTE;
+	typedef unsigned short		NUWORD;
 	typedef unsigned long		NUDWORD;
 	typedef unsigned long long	NUQWORD;
 
