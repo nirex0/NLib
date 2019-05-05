@@ -29,4 +29,6 @@
 #include "NRelativeChance.h"
 #include "NPerfectChance.h"
 
+#include "NMatrix.h"
+
 #endif // !_N_LIB_H_
