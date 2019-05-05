@@ -46,6 +46,12 @@
     <Filter Include="Source Files\Primitives">
       <UniqueIdentifier>{1260c5b2-c6a0-4490-be95-f54f33c5b20a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{80a82ed3-c483-4701-a136-e1e06259362d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{ed326add-5091-4557-96f6-769805354efa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NLib.h">
@@ -126,6 +132,9 @@
     <ClInclude Include="NDirent.h">
       <Filter>Header Files\System</Filter>
     </ClInclude>
+    <ClInclude Include="NMatrix.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NRegistry.cpp">
@@ -181,6 +190,9 @@
     </ClCompile>
     <ClCompile Include="NRelativeChance.cpp">
       <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="NMatrix.cpp">
+      <Filter>Source Files\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
