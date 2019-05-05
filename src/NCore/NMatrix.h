@@ -19,7 +19,7 @@ namespace NLib
 	template <class T>
 	class NAPI NMatrix
 	{
-	PUBLIC:
+	public:
 		NMatrix<T>(int height, int width);
 		NMatrix<T>(std::vector<std::vector<T>> const& array);
 		NMatrix<T>(void);
@@ -56,7 +56,7 @@ namespace NLib
 		NMatrix<T> operator/=(const T& m);
 		T& operator()(int y, int x);
 
-	DATA:
+	private:
 		std::vector<std::vector<T>> array;
 		int height;
 		int width;
