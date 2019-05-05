@@ -32,6 +32,7 @@
     <ClInclude Include="NGenerator.h" />
     <ClInclude Include="NLib.h" />
     <ClInclude Include="NLogicalBound.h" />
+    <ClInclude Include="NMatrix.h" />
     <ClInclude Include="NMCILinkage.h" />
     <ClInclude Include="NObject.h" />
     <ClInclude Include="NPair.h" />
@@ -56,6 +57,7 @@
     <ClCompile Include="NFile.cpp" />
     <ClCompile Include="NGenerator.cpp" />
     <ClCompile Include="NLogicalBound.cpp" />
+    <ClCompile Include="NMatrix.cpp" />
     <ClCompile Include="NObject.cpp" />
     <ClCompile Include="NPair.cpp" />
     <ClCompile Include="NPerfectChance.cpp" />
