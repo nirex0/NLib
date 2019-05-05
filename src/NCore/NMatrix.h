@@ -62,7 +62,6 @@ namespace NLib
 		int width;
 	};
 
-
 	// Generic Matrix Functions
 	template <class T> NMatrix<T> operator+(const NMatrix<T>& a, const NMatrix<T>& b);
 	template <class T> NMatrix<T> operator-(const NMatrix<T>& a, const NMatrix<T>& b);
@@ -71,11 +70,14 @@ namespace NLib
 	template <class T> NMatrix<T> operator/(const NMatrix<T>& a, const T& b);
 	template <class T> std::ostream& operator<<(std::ostream& flux, const NMatrix<T>& m);
 
+	// Other Matrix Definitions (DataType helpers)
 	typedef NMatrix<char> NMatC;
+	typedef NMatrix<short> NMatS;
 	typedef NMatrix<long> NMatL;
 	typedef NMatrix<long long> NMatLL;
 
 	typedef NMatrix<unsigned char> NMatUC;
+	typedef NMatrix<unsigned short> NMatUS;
 	typedef NMatrix<unsigned long> NMatUL;
 	typedef NMatrix<unsigned long long> NMatULL;
 
@@ -129,8 +131,6 @@ namespace NLib
 		m.Print(flux);
 		return flux;
 	}
-
-
 }
 
 #endif // !_N_MATRIX_H_
