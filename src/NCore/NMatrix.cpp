@@ -225,6 +225,22 @@ NMatrix<T> NMatrix<T>::ApplyFunction(T(*function)(T)) const
 }
 
 template <class T>
+NMatrix<T> NMatrix<T>::Map(T(*function)(T)) const
+{
+	NMatrix<T> result(height, width);
+
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			result.array[i][j] = (*function)(array[i][j]);
+		}
+	}
+
+	return result;
+}
+
+template <class T>
 NMatrix<T> NMatrix<T>::SubMatrix(int startH, int startW, int h, int w) const
 {
 	if (!(startH >= 0 && startH + h <= height && startW >= 0 && startW + w <= width))

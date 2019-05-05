@@ -40,6 +40,7 @@ namespace NLib
 		NMatrix<T> Divide(const T& value) const;
 
 		NMatrix<T> ApplyFunction(T(*function)(T)) const;
+		NMatrix<T> Map(T(*function)(T)) const;
 		NMatrix<T> SubMatrix(int startH, int startW, int h, int w) const;
 		std::vector<T> ToVector(void) const;
 		void FromVector(const std::vector<T>& inVec) const;
