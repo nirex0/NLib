@@ -38,7 +38,6 @@ namespace NLib
 
 		static std::vector<std::string> GetEntities(const std::string& folder);
 		static std::vector<std::wstring> GetEntities(const std::wstring& folder);
-
 	};
 }
 #endif // !_N_FILE_H_
