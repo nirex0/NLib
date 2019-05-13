@@ -274,6 +274,5 @@ namespace NLib
 		}
 
 		return retVec;
-
 	}
 }
